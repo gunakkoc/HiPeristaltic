@@ -1,0 +1,83 @@
+//global variables to be added
+
+const uint32_t USB_UPDATE_DELAY = USB_UPDATE_DELAY_US * SUB_US_DIV;
+uint32_t usb_last_tick = 0;
+
+//in setup()
+//add these at the end of function
+  stdio_init_all();
+
+  stdio_usb_tud_task(); //wait for USB connection
+  while (!stdio_usb_connected()) {
+    stdio_usb_tud_task();
+  }
+
+  for (int i=0; i<200; i++){ //we need ~200ms for USB init
+    stdio_usb_tud_task();
+    sleep_ms(1);
+  }
+  stdio_usb_tud_task();
+
+  usb_last_tick = tick_now;
+//remove these from the beginning
+  stdio_init_all();
+  stdio_set_translate_crlf(&stdio_usb, false);
+
+  while (!stdio_usb_connected()) {
+    sleep_ms(500);
+  }
+
+
+
+//ADD OR REPLACE THE FUNCTIONS BELOW
+void usb_update(){
+  if ((tick_now - usb_last_tick) > usb_update_delay){
+    stdio_usb_tud_task();
+    usb_last_tick = tick_now;
+  }
+}
+
+bool process_commands() {
+  usb_update();
+  if (snd_byte_cnt < MSG_LEN){ //data needs sending
+      if (!stdio_usb_out_available()){
+        return true;
+      }
+      stdio_usb_out_char(snd_buffer[snd_byte_cnt]);
+      stdio_usb_tud_task();
+      // putchar_raw(snd_buffer[snd_byte_cnt]);
+      snd_byte_cnt++;
+      return true;
+  } else if (snd_byte_cnt == MSG_LEN){ //all data have been sent, now needs flushing
+    if (stdio_usb_out_flush_single()){
+      stdio_usb_tud_task();
+      return true; //needs more flushing
+    }
+    stdio_usb_tud_task();
+    snd_byte_cnt++; //everything flushed, we can move on
+    return true;
+  } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
+    rcv_byte_cnt = 0;
+    if (check_checksum()){
+	  if (rcv_buffer[0] > CMD_COUNT) {
+		  err_cmd();
+		  return true;
+	  }
+      cmd_fnc_lst[rcv_buffer[0]](); //find the corresponding func by first byte as uint8
+    } else {
+      err_checksum(); //request data again
+    }
+    return true; //continue reading (if any) on next cycle
+  } else if (stdio_usb_in_available()){ //if nothing else to do and need reading
+    rcv_last_tick = tick_now;
+    stdio_usb_in_chars(rcv_buffer + rcv_byte_cnt,1);
+    stdio_usb_tud_task();
+    rcv_byte_cnt++;
+    return true;
+  } else if ((tick_now - rcv_last_tick) > SERIAL_INTERBYTE_TIMEOUT) { //handle interbyte timeout
+    rcv_byte_cnt = 0;
+    return true;
+  } else {
+    return false; //nothing happened
+  }
+}

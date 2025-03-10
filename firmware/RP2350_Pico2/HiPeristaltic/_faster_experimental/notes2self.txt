@@ -1,0 +1,227 @@
+to convert from arduino code
+https://stackoverflow.com/questions/77920558/how-to-get-fast-data-transmission-from-pi-4-to-pi-pico-via-usb
+
+#define LOW false
+#define HIGH true
+#define OUTPUT GPIO_OUT
+
+#define micros() time_us_32();
+#define delay(ms) sleep_ms(ms);
+
+#define digitalWrite(pin,state) gpio_put(pin,state);
+#define LED_BUILTIN PICO_DEFAULT_LED_PIN
+#define pinMode(pin,mode) gpio_init(pin); gpio_set_dir(pin,mode);
+
+#define Serial.begin(rate) stdio_init_all(); stdio_set_translate_crlf(&stdio_usb, false); while (!stdio_usb_connected()) {sleep_ms(10);}
+#define Serial.write(c) putchar_raw(c);
+#define Serial.available() tud_cdc_available();
+
+// REPLACE LIST (x TO y)
+pin = TO pin = PICO_DEFAULT_LED_PIN; //
+UCSR0B &= ~_BV(UDRIE0); TO //UCSR0B &= ~_BV(UDRIE0); //arduino
+UDR0 = snd_buffer[snd_byte_cnt]; TO //UDR0 = snd_buffer[snd_byte_cnt]; //arduino
+
+//ADD LIST
+#include <stdio.h>
+#include "pico/stdlib.h"
+uint32_t m1_us_delta = 0;
+uint32_t m2_us_delta = 0;
+uint32_t m3_us_delta = 0;
+uint32_t m4_us_delta = 0;
+uint32_t usb_last_us = 0;
+const uint32_t usb_update_us = 200; //every us to call tud_task()
+
+gpio_init(23); gpio_set_dir(23, GPIO_OUT);
+gpio_put(23, true); //DISABLE POWER SAVINGS
+
+//pico motor
+void m1step() {
+  if (!m1_running){
+    return;
+  }
+  if (m1_npulse) {
+    m1_us_delta = (us_now - m1_us_last);
+    if (m1_last_pulse) { //if high switch to low after min. 1us
+      if (m1_us_delta) { //check if min. 1us has passed
+        m1_last_pulse = false;
+        gpio_put(m1_step_pin, false);
+        // return;
+      } //else return;
+    } else if (m1_us_delta >= m1_us_delay) { //if low, check enough time has passed for high
+      gpio_put(m1_step_pin, true);
+      m1_last_pulse = true;
+      m1_npulse-=m1_increment;
+      m1_us_last = us_now;
+      // return;
+    }
+  } else if (snd_byte_cnt > MSG_LEN) { //if no steps remaining and no message pending
+      m1_running = false; //this will prevent reentering here
+      signal_m1_end();
+      // return;
+  }
+}
+
+void m2step() {
+  if (!m2_running){
+    return;
+  }
+  if (m2_npulse) {
+    m2_us_delta = (us_now - m2_us_last);
+    if (m2_last_pulse) { //if high switch to low after min. 1us
+      if (m2_us_delta) { //check if min. 1us has passed
+        m2_last_pulse = false;
+        gpio_put(m2_step_pin, false);
+        // return;
+      } //else return;
+    } else if (m2_us_delta >= m2_us_delay) { //if low, check enough time has passed for high
+      gpio_put(m2_step_pin, true);
+      m2_last_pulse = true;
+      m2_npulse-=m2_increment;
+      m2_us_last = us_now;
+      // return;
+    }
+  } else if (snd_byte_cnt > MSG_LEN) { //if no steps remaining and no message pending
+      m2_running = false; //this will prevent reentering here
+      signal_m2_end();
+      // return;
+  }
+}
+
+void m3step() {
+  if (!m3_running){
+    return;
+  }
+  if (m3_npulse) {
+    m3_us_delta = (us_now - m3_us_last);
+    if (m3_last_pulse) { //if high switch to low after min. 1us
+      if (m3_us_delta) { //check if min. 1us has passed
+        m3_last_pulse = false;
+        gpio_put(m3_step_pin, false);
+        // return;
+      } //else return;
+    } else if (m3_us_delta >= m3_us_delay) { //if low, check enough time has passed for high
+      gpio_put(m3_step_pin, true);
+      m3_last_pulse = true;
+      m3_npulse-=m3_increment;
+      m3_us_last = us_now;
+      // return;
+    }
+  } else if (snd_byte_cnt > MSG_LEN) { //if no steps remaining and no message pending
+      m3_running = false; //this will prevent reentering here
+      signal_m3_end();
+      // return;
+  }
+}
+
+void m4step() {
+  if (!m4_running){
+    return;
+  }
+  if (m4_npulse) {
+    m4_us_delta = (us_now - m4_us_last);
+    if (m4_last_pulse) { //if high switch to low after min. 1us
+      if (m4_us_delta) { //check if min. 1us has passed
+        m4_last_pulse = false;
+        gpio_put(m4_step_pin, false);
+        // return;
+      } //else return;
+    } else if (m4_us_delta >= m4_us_delay) { //if low, check enough time has passed for high
+      gpio_put(m4_step_pin, true);
+      m4_last_pulse = true;
+      m4_npulse-=m4_increment;
+      m4_us_last = us_now;
+      // return;
+    }
+  } else if (snd_byte_cnt > MSG_LEN) { //if no steps remaining and no message pending
+      m4_running = false; //this will prevent reentering here
+      signal_m4_end();
+      // return;
+  }
+}
+
+
+//pico
+void usb_update(){
+  if ((us_now - usb_last_us) > usb_update_us){
+    stdio_usb_tud_task();
+    usb_last_us = us_now;
+  }
+}
+bool process_commands() {
+  usb_update();
+  if (snd_byte_cnt < MSG_LEN){ //data needs sending
+      if (!stdio_usb_out_available()){
+        return true;
+      }
+      stdio_usb_out_char(snd_buffer[snd_byte_cnt]);
+      stdio_usb_tud_task();
+      // putchar_raw(snd_buffer[snd_byte_cnt]);
+      snd_byte_cnt++;
+      return true;
+  } else if (snd_byte_cnt == MSG_LEN){ //all data have been sent, now needs flushing
+    if (stdio_usb_out_flush_single()){
+      stdio_usb_tud_task();
+      return true; //needs more flushing
+    }
+    stdio_usb_tud_task();
+    snd_byte_cnt++; //everything flushed, we can move on
+    return true;
+  } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
+    rcv_byte_cnt = 0;
+    if (check_checksum()){
+      cmd_fnc_lst[rcv_buffer[0]](); //find the corresponding func by first byte as uint8
+    } else {
+      err_checksum(); //request data again
+    }
+    return true; //continue reading (if any) on next cycle
+  } else if (stdio_usb_in_available()){ //if nothing else to do and need reading
+    rcv_last_us = us_now;
+    stdio_usb_in_chars(rcv_buffer + rcv_byte_cnt,1);
+    stdio_usb_tud_task();
+    rcv_byte_cnt++;
+    return true;
+  } else if ((us_now - rcv_last_us) > rcv_timeout_us) { //handle interbyte timeout
+    rcv_byte_cnt = 0;
+    return true;
+  } else {
+    return false; //nothing happened
+  }
+}
+
+
+//arduino
+bool process_commands() {
+  // if (Udp.parsePacket()) {
+  //   Udp.read(rcv_buffer, BUFFER_LEN);
+  // } else {
+  //   return;
+  // }
+  if (snd_byte_cnt < MSG_LEN){ //data needs sending
+    if (bit_is_set(UCSR0A, UDRE0)) { //only if sending a byte is possible
+      //Serial.write(snd_buffer[snd_byte_cnt]);
+      UDR0 = snd_buffer[snd_byte_cnt]; //directly send a single byte, bypassing the TX buffer
+      snd_byte_cnt++;
+      return true;
+    }
+    return false; //if a byte can't be send, wait for the next cycle
+  } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
+    rcv_byte_cnt = 0;
+    if (check_checksum()){
+      cmd_fnc_lst[rcv_buffer[0]](); //find the corresponding func by first byte as uint8
+    } else {
+      err_checksum(); //request data again
+    }
+    return true; //continue reading (if any) on next cycle
+  } else if (Serial.available()) { //read byte by byte to buffer
+      rcv_last_us = us_now;
+      rcv_buffer[rcv_byte_cnt] = Serial.read();
+      rcv_byte_cnt++;
+      return true; //process the command (if fully received) on next cycle
+  } else if (rcv_byte_cnt > 0){ //handle interbyte timeout, if reached reset the buffer
+    if ((us_now - rcv_last_us) > rcv_timeout_us) {
+      rcv_byte_cnt = 0;
+      return true;
+    }
+  }
+  return false; //nothing happened
+}

@@ -1,0 +1,57 @@
+pump_count = 4
+
+[device]
+serial_port = "COM13"
+serial_baudrate = 115200
+
+[pumps.pump0]
+calibration_uL_per_Rev = 60.0
+gear_ratio = 1
+motor_base_spr = 200
+motor_dir_inverse = false
+motor_usteps = 1
+direction_default = "CW"
+direction_inverse = false
+max_rpm = 100
+motor_var_ustep_support = true
+motor_max_ustep_exp = 8
+motor_min_ustep_exp = 0
+
+[pumps.pump1]
+calibration_uL_per_Rev = 60.0
+gear_ratio = 1
+motor_base_spr = 200
+motor_dir_inverse = false
+motor_usteps = 1
+direction_default = "CW"
+direction_inverse = false
+max_rpm = 100
+motor_var_ustep_support = true
+motor_max_ustep_exp = 8
+motor_min_ustep_exp = 0
+
+[pumps.pump2]
+calibration_uL_per_Rev = 60.0
+gear_ratio = 1
+motor_base_spr = 200
+motor_dir_inverse = false
+motor_usteps = 1
+direction_default = "CW"
+direction_inverse = false
+max_rpm = 100
+motor_var_ustep_support = true
+motor_max_ustep_exp = 8
+motor_min_ustep_exp = 0
+
+[pumps.pump3]
+calibration_uL_per_Rev = 60.0
+gear_ratio = 1
+motor_base_spr = 200
+motor_dir_inverse = false
+motor_usteps = 1
+direction_default = "CW"
+direction_inverse = false
+max_rpm = 100
+motor_var_ustep_support = true
+motor_max_ustep_exp = 8
+motor_min_ustep_exp = 0

@@ -1,0 +1,159 @@
+syntax = "proto3";
+
+import "SiLAFramework.proto";
+
+package sila2.org.silastandard.examples.hiperistaltic.v1;
+
+/* Peristaltic pump controller for high precision liquid handling by HI-ERN. */
+service HiPeristaltic {
+  /* 
+      Starts the pump channel with the given flow rate and runs until the target volume is reached.
+     */
+  rpc StartPump (sila2.org.silastandard.examples.hiperistaltic.v1.StartPump_Parameters) returns (sila2.org.silastandard.CommandConfirmation) {}
+  /* Monitor the state of StartPump */
+  rpc StartPump_Info (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.ExecutionInfo) {}
+  /* Retrieve intermediate responses of StartPump */
+  rpc StartPump_Intermediate (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.examples.hiperistaltic.v1.StartPump_IntermediateResponses) {}
+  /* Retrieve result of StartPump */
+  rpc StartPump_Result(sila2.org.silastandard.CommandExecutionUUID) returns (sila2.org.silastandard.examples.hiperistaltic.v1.StartPump_Responses) {}
+  /* 
+      Starts the pump channel with the given flow rate and runs continuously until stopped.
+     */
+  rpc StartPumpContinuous (sila2.org.silastandard.examples.hiperistaltic.v1.StartPumpContinuous_Parameters) returns (sila2.org.silastandard.CommandConfirmation) {}
+  /* Monitor the state of StartPumpContinuous */
+  rpc StartPumpContinuous_Info (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.ExecutionInfo) {}
+  /* Retrieve intermediate responses of StartPumpContinuous */
+  rpc StartPumpContinuous_Intermediate (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.examples.hiperistaltic.v1.StartPumpContinuous_IntermediateResponses) {}
+  /* Retrieve result of StartPumpContinuous */
+  rpc StartPumpContinuous_Result(sila2.org.silastandard.CommandExecutionUUID) returns (sila2.org.silastandard.examples.hiperistaltic.v1.StartPumpContinuous_Responses) {}
+  /* 
+      Stops the given pump channel.
+     */
+  rpc StopPump (sila2.org.silastandard.examples.hiperistaltic.v1.StopPump_Parameters) returns (sila2.org.silastandard.CommandConfirmation) {}
+  /* Monitor the state of StopPump */
+  rpc StopPump_Info (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.ExecutionInfo) {}
+  /* Retrieve result of StopPump */
+  rpc StopPump_Result(sila2.org.silastandard.CommandExecutionUUID) returns (sila2.org.silastandard.examples.hiperistaltic.v1.StopPump_Responses) {}
+  /* 
+      Resumes the paused pump.
+     */
+  rpc ResumePump (sila2.org.silastandard.examples.hiperistaltic.v1.ResumePump_Parameters) returns (sila2.org.silastandard.CommandConfirmation) {}
+  /* Monitor the state of ResumePump */
+  rpc ResumePump_Info (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.ExecutionInfo) {}
+  /* Retrieve intermediate responses of ResumePump */
+  rpc ResumePump_Intermediate (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.examples.hiperistaltic.v1.ResumePump_IntermediateResponses) {}
+  /* Retrieve result of ResumePump */
+  rpc ResumePump_Result(sila2.org.silastandard.CommandExecutionUUID) returns (sila2.org.silastandard.examples.hiperistaltic.v1.ResumePump_Responses) {}
+  /* 
+      Starts the pump channel with the given RPM until target number of revolution of the motor is achieved.
+     */
+  rpc StartPumpCalibration (sila2.org.silastandard.examples.hiperistaltic.v1.StartPumpCalibration_Parameters) returns (sila2.org.silastandard.CommandConfirmation) {}
+  /* Monitor the state of StartPumpCalibration */
+  rpc StartPumpCalibration_Info (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.ExecutionInfo) {}
+  /* Retrieve intermediate responses of StartPumpCalibration */
+  rpc StartPumpCalibration_Intermediate (sila2.org.silastandard.CommandExecutionUUID) returns (stream sila2.org.silastandard.examples.hiperistaltic.v1.StartPumpCalibration_IntermediateResponses) {}
+  /* Retrieve result of StartPumpCalibration */
+  rpc StartPumpCalibration_Result(sila2.org.silastandard.CommandExecutionUUID) returns (sila2.org.silastandard.examples.hiperistaltic.v1.StartPumpCalibration_Responses) {}
+  /* Set a pump channel's calibration parameter in microliters per revolution. */
+  rpc SetPumpCalibration (sila2.org.silastandard.examples.hiperistaltic.v1.SetPumpCalibration_Parameters) returns (sila2.org.silastandard.examples.hiperistaltic.v1.SetPumpCalibration_Responses) {}
+  /* Pump is connected. */
+  rpc Subscribe_PumpConnected (sila2.org.silastandard.examples.hiperistaltic.v1.Subscribe_PumpConnected_Parameters) returns (stream sila2.org.silastandard.examples.hiperistaltic.v1.Subscribe_PumpConnected_Responses) {}
+}
+
+/* Parameters for StartPump */
+message StartPump_Parameters {
+  sila2.org.silastandard.Integer PumpIndex = 1;  /* The target pump channel index from 1 to 4 (both inclusive). */
+  sila2.org.silastandard.Real FlowRate = 2;  /* The flow rate in microliters per second at which the pump should operate. */
+  sila2.org.silastandard.Real TargetVolume = 3;  /* The target volume in microliters. */
+  sila2.org.silastandard.String PumpDirection = 4;  /* Pump direction, either 'clockwise' (or CW) or 'counter-clockwise' (or CCW). If empty, default direction defined in the configuration file will be used. */
+}
+
+/* Responses of StartPump */
+message StartPump_Responses {
+  sila2.org.silastandard.Real PumpedVolume = 1;  /* Total pumped volume in microliters until the pump was finished or stopped. */
+}
+
+/* Intermediate responses of StartPump */
+message StartPump_IntermediateResponses {
+  sila2.org.silastandard.Real CurrentVolume = 1;  /* Current volume in microliters. */
+}
+
+/* Parameters for StartPumpContinuous */
+message StartPumpContinuous_Parameters {
+  sila2.org.silastandard.Integer PumpIndex = 1;  /* The target pump channel index from 1 to 4 (both inclusive). */
+  sila2.org.silastandard.Real FlowRate = 2;  /* The flow rate in microliters per second at which the pump should operate. */
+  sila2.org.silastandard.String PumpDirection = 3;  /* Pump direction, either 'clockwise' or 'counter-clockwise'. If empty, default direction defined in the configuration file will be used. */
+}
+
+/* Responses of StartPumpContinuous */
+message StartPumpContinuous_Responses {
+  sila2.org.silastandard.Real PumpedVolume = 1;  /* Total pumped volume in microliters until the pump was stopped. */
+}
+
+/* Intermediate responses of StartPumpContinuous */
+message StartPumpContinuous_IntermediateResponses {
+  sila2.org.silastandard.Real CurrentVolume = 1;  /* Current volume in microliters. */
+}
+
+/* Parameters for StopPump */
+message StopPump_Parameters {
+  sila2.org.silastandard.Integer PumpIndex = 1;  /* The target pump channel index from 1 to 4 (both inclusive). */
+}
+
+/* Responses of StopPump */
+message StopPump_Responses {
+  sila2.org.silastandard.Real RemainingVolume = 1;  /* The remaining volume in microliters to be pumped at the time of stopping. */
+}
+
+/* Parameters for ResumePump */
+message ResumePump_Parameters {
+  sila2.org.silastandard.Integer PumpIndex = 1;  /* The target pump channel index from 1 to 4 (both inclusive). */
+}
+
+/* Responses of ResumePump */
+message ResumePump_Responses {
+  sila2.org.silastandard.Real PumpedVolume = 1;  /* Total pumped volume in microliters until the pump was finished or stopped. */
+}
+
+/* Intermediate responses of ResumePump */
+message ResumePump_IntermediateResponses {
+  sila2.org.silastandard.Real CurrentVolume = 1;  /* Current volume in microliters. */
+}
+
+/* Parameters for StartPumpCalibration */
+message StartPumpCalibration_Parameters {
+  sila2.org.silastandard.Integer PumpIndex = 1;  /* The target pump channel index from 1 to 4 (both inclusive). */
+  sila2.org.silastandard.Real RPM = 2;  /* Revolution per minute. */
+  sila2.org.silastandard.Real TargetRevolutions = 3;  /* The target number of revolutions of the motor. */
+  sila2.org.silastandard.String PumpDirection = 4;  /* Pump direction, either 'clockwise' or 'counter-clockwise'. If empty, default direction defined in the configuration file will be used. */
+}
+
+/* Responses of StartPumpCalibration */
+message StartPumpCalibration_Responses {
+  sila2.org.silastandard.Boolean Completed = 1;  /* Whether the target number of revolution is achieved successfully. */
+}
+
+/* Intermediate responses of StartPumpCalibration */
+message StartPumpCalibration_IntermediateResponses {
+  sila2.org.silastandard.Real CurrentRevolution = 1;  /* Current number of revolution. */
+}
+
+/* Parameters for SetPumpCalibration */
+message SetPumpCalibration_Parameters {
+  sila2.org.silastandard.Integer PumpIndex = 1;  /* The target pump channel index from 1 to 4 (both inclusive). */
+  sila2.org.silastandard.Real CalibrationParameter = 2;  /* Calibration parameter in microliters per revolution. */
+}
+
+/* Responses of SetPumpCalibration */
+message SetPumpCalibration_Responses {
+  sila2.org.silastandard.Boolean Completed = 1;  /* Whether the new calibration parameter is applied successfully. */
+}
+
+/* Parameters for PumpConnected */
+message Subscribe_PumpConnected_Parameters {
+}
+
+/* Responses of PumpConnected */
+message Subscribe_PumpConnected_Responses {
+  sila2.org.silastandard.Boolean PumpConnected = 1;  /* Pump is connected. */
+}

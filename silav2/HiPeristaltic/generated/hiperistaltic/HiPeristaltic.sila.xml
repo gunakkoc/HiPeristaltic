@@ -1,0 +1,456 @@
+<Feature xmlns="http://www.sila-standard.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Category="examples" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" SiLA2Version="1.0" xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+  <Identifier>HiPeristaltic</Identifier>
+  <DisplayName>HiPeristaltic Controller</DisplayName>
+  <Description>Peristaltic pump controller for high precision liquid handling by HI-ERN.</Description>
+  <!-- Start pump command -->
+  <Command>
+    <Identifier>StartPump</Identifier>
+    <DisplayName>Start Pump</DisplayName>
+    <Description>Starts the pump channel with the given flow rate and runs until the target volume is reached.</Description>
+    <Observable>Yes</Observable>
+    <!-- Pump Index -->
+    <Parameter>
+      <Identifier>PumpIndex</Identifier>
+      <DisplayName>Pump Index(1-4)</DisplayName>
+      <Description>The target pump channel index from 1 to 4 (both inclusive).</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>4</MaximalInclusive>
+            <MinimalExclusive>0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Flow rate -->
+    <Parameter>
+      <Identifier>FlowRate</Identifier>
+      <DisplayName>Flow Rate(uL/s)</DisplayName>
+      <Description>The flow rate in microliters per second at which the pump should operate.</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>1000.0</MaximalInclusive>
+            <MinimalExclusive>0.0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Target Vol -->
+    <Parameter>
+      <Identifier>TargetVolume</Identifier>
+      <DisplayName>Target Volume(uL)</DisplayName>
+      <Description>The target volume in microliters.</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>100000000.0</MaximalInclusive>
+            <MinimalExclusive>0.0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Pump Direction -->
+    <Parameter>
+      <Identifier>PumpDirection</Identifier>
+      <DisplayName>Pump Direction - CW or CCW</DisplayName>
+      <Description>Pump direction, either 'clockwise' (or CW) or 'counter-clockwise' (or CCW). If empty, default direction defined in the configuration file will be used.</Description>
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <!-- Response -->
+    <Response>
+      <Identifier>PumpedVolume</Identifier>
+      <DisplayName>Pumped Volume(uL)</DisplayName>
+      <Description>Total pumped volume in microliters until the pump was finished or stopped.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </Response>
+    <!-- Intermediate Response -->
+    <IntermediateResponse>
+      <Identifier>CurrentVolume</Identifier>
+      <DisplayName>Current Volume(uL)</DisplayName>
+      <Description>Current volume in microliters.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </IntermediateResponse>
+    <!-- Related Errors -->
+    <DefinedExecutionErrors>
+      <Identifier>PumpIndexOutOfRange</Identifier>
+      <Identifier>FlowRateOutOfRange</Identifier>
+      <Identifier>TargetVolumeOutOfRange</Identifier>
+      <Identifier>InvalidDirection</Identifier>
+      <Identifier>PumpInterrupted</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <!-- Start pump continuous command -->
+  <Command>
+    <Identifier>StartPumpContinuous</Identifier>
+    <DisplayName>Start Pump Continuous</DisplayName>
+    <Description>Starts the pump channel with the given flow rate and runs continuously until stopped.</Description>
+    <Observable>Yes</Observable>
+    <!-- Pump Index -->
+    <Parameter>
+      <Identifier>PumpIndex</Identifier>
+      <DisplayName>Pump Index(1-4)</DisplayName>
+      <Description>The target pump channel index from 1 to 4 (both inclusive).</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>4</MaximalInclusive>
+            <MinimalExclusive>0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Flow rate -->
+    <Parameter>
+      <Identifier>FlowRate</Identifier>
+      <DisplayName>Flow Rate(uL/s)</DisplayName>
+      <Description>The flow rate in microliters per second at which the pump should operate.</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>1000.0</MaximalInclusive>
+            <MinimalExclusive>0.0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Pump Direction -->
+    <Parameter>
+      <Identifier>PumpDirection</Identifier>
+      <DisplayName>Pump Direction</DisplayName>
+      <Description>Pump direction, either 'clockwise' or 'counter-clockwise'. If empty, default direction defined in the configuration file will be used.</Description>
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <!-- Response -->
+    <Response>
+      <Identifier>PumpedVolume</Identifier>
+      <DisplayName>Pumped Volume(uL)</DisplayName>
+      <Description>Total pumped volume in microliters until the pump was stopped.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </Response>
+    <!-- Intermediate Response -->
+    <IntermediateResponse>
+      <Identifier>CurrentVolume</Identifier>
+      <DisplayName>Current Volume(uL)</DisplayName>
+      <Description>Current volume in microliters.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </IntermediateResponse>
+    <!-- Related Errors -->
+    <DefinedExecutionErrors>
+      <Identifier>PumpIndexOutOfRange</Identifier>
+      <Identifier>FlowRateOutOfRange</Identifier>
+      <Identifier>InvalidDirection</Identifier>
+      <Identifier>PumpInterrupted</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <!-- Stop pump command -->
+  <Command>
+    <Identifier>StopPump</Identifier>
+    <DisplayName>Stop Pump</DisplayName>
+    <Description>Stops the given pump channel.</Description>
+    <Observable>Yes</Observable>
+    <!-- Pump Index -->
+    <Parameter>
+      <Identifier>PumpIndex</Identifier>
+      <DisplayName>Pump Index(1-4)</DisplayName>
+      <Description>The target pump channel index from 1 to 4 (both inclusive).</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>4</MaximalInclusive>
+            <MinimalExclusive>0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Response -->
+    <Response>
+      <Identifier>RemainingVolume</Identifier>
+      <DisplayName>Remaining Volume(uL)</DisplayName>
+      <Description>The remaining volume in microliters to be pumped at the time of stopping.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </Response>
+    <DefinedExecutionErrors>
+      <Identifier>PumpIndexOutOfRange</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <!-- Resume pump command -->
+  <Command>
+    <Identifier>ResumePump</Identifier>
+    <DisplayName>Resume Pump</DisplayName>
+    <Description>Resumes the paused pump.</Description>
+    <Observable>Yes</Observable>
+    <!-- Pump Index -->
+    <Parameter>
+      <Identifier>PumpIndex</Identifier>
+      <DisplayName>Pump Index(1-4)</DisplayName>
+      <Description>The target pump channel index from 1 to 4 (both inclusive).</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>4</MaximalInclusive>
+            <MinimalExclusive>0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Response -->
+    <Response>
+      <Identifier>PumpedVolume</Identifier>
+      <DisplayName>Pumped Volume(uL)</DisplayName>
+      <Description>Total pumped volume in microliters until the pump was finished or stopped.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </Response>
+    <!-- Intermediate Response -->
+    <IntermediateResponse>
+      <Identifier>CurrentVolume</Identifier>
+      <DisplayName>Current Volume(uL)</DisplayName>
+      <Description>Current volume in microliters.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </IntermediateResponse>
+    <!-- Related Errors -->
+    <DefinedExecutionErrors>
+      <Identifier>PumpIndexOutOfRange</Identifier>
+      <Identifier>PumpInterrupted</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <!-- Start pump calibration command -->
+  <Command>
+    <Identifier>StartPumpCalibration</Identifier>
+    <DisplayName>Start Pump Calibration</DisplayName>
+    <Description>Starts the pump channel with the given RPM until target number of revolution of the motor is achieved.</Description>
+    <Observable>Yes</Observable>
+    <!-- Pump Index -->
+    <Parameter>
+      <Identifier>PumpIndex</Identifier>
+      <DisplayName>Pump Index(1-4)</DisplayName>
+      <Description>The target pump channel index from 1 to 4 (both inclusive).</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>4</MaximalInclusive>
+            <MinimalExclusive>0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- RPM -->
+    <Parameter>
+      <Identifier>RPM</Identifier>
+      <DisplayName>RPM</DisplayName>
+      <Description>Revolution per minute.</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>100.0</MaximalInclusive>
+            <MinimalExclusive>0.0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Target Revs -->
+    <Parameter>
+      <Identifier>TargetRevolutions</Identifier>
+      <DisplayName>Target Revolutions</DisplayName>
+      <Description>The target number of revolutions of the motor.</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>1000.0</MaximalInclusive>
+            <MinimalExclusive>0.0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Pump Direction -->
+    <Parameter>
+      <Identifier>PumpDirection</Identifier>
+      <DisplayName>Pump Direction - CW or CCW</DisplayName>
+      <Description>Pump direction, either 'clockwise' or 'counter-clockwise'. If empty, default direction defined in the configuration file will be used.</Description>
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <!-- Response -->
+    <Response>
+      <Identifier>Completed</Identifier>
+      <DisplayName>Completed</DisplayName>
+      <Description>Whether the target number of revolution is achieved successfully.</Description>
+      <DataType>
+        <Basic>Boolean</Basic>
+      </DataType>
+    </Response>
+    <!-- Intermediate Response -->
+    <IntermediateResponse>
+      <Identifier>CurrentRevolution</Identifier>
+      <DisplayName>Current Revolution</DisplayName>
+      <Description>Current number of revolution.</Description>
+      <DataType>
+        <Basic>Real</Basic>
+      </DataType>
+    </IntermediateResponse>
+    <!-- Related Errors -->
+    <DefinedExecutionErrors>
+      <Identifier>PumpIndexOutOfRange</Identifier>
+      <Identifier>RPMOutOfRange</Identifier>
+      <Identifier>TargetRevolutionsOutOfRange</Identifier>
+      <Identifier>InvalidDirection</Identifier>
+      <Identifier>PumpInterrupted</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <!-- Set pump calibration command -->
+  <Command>
+    <Identifier>SetPumpCalibration</Identifier>
+    <DisplayName>Set Pump Calibration Parameter(uL/rev)</DisplayName>
+    <Description>Set a pump channel's calibration parameter in microliters per revolution.</Description>
+    <Observable>No</Observable>
+    <!-- Pump Index -->
+    <Parameter>
+      <Identifier>PumpIndex</Identifier>
+      <DisplayName>Pump Index(1-4)</DisplayName>
+      <Description>The target pump channel index from 1 to 4 (both inclusive).</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>4</MaximalInclusive>
+            <MinimalExclusive>0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Calibration Parameter -->
+    <Parameter>
+      <Identifier>CalibrationParameter</Identifier>
+      <DisplayName>Calibration Parameter(uL/rev)</DisplayName>
+      <Description>Calibration parameter in microliters per revolution.</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+          <Constraints>
+            <MaximalInclusive>1000000.0</MaximalInclusive>
+            <MinimalExclusive>0.0</MinimalExclusive>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
+    <!-- Response -->
+    <Response>
+      <Identifier>Completed</Identifier>
+      <DisplayName>Completed</DisplayName>
+      <Description>Whether the new calibration parameter is applied successfully.</Description>
+      <DataType>
+        <Basic>Boolean</Basic>
+      </DataType>
+    </Response>
+    <!-- Related Errors -->
+    <DefinedExecutionErrors>
+      <Identifier>PumpIndexOutOfRange</Identifier>
+      <Identifier>CalibrationParameterOutOfRange</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+  <!-- Error Definitions -->
+  <DefinedExecutionError>
+    <Identifier>PumpIndexOutOfRange</Identifier>
+    <DisplayName>Pump Index Out Of Range</DisplayName>
+    <Description>The selected pump channel index is out of range. Must be 1-4.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>FlowRateOutOfRange</Identifier>
+    <DisplayName>Flow Rate Out Of Range</DisplayName>
+    <Description>The selected flow rate is either negative, too small, or above the maximum possible rate.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>TargetVolumeOutOfRange</Identifier>
+    <DisplayName>Target Volume Out Of Range</DisplayName>
+    <Description>The selected target volume is either negative, too small, or above the maximum possible volume.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>PumpInterrupted</Identifier>
+    <DisplayName>Pump Interrupted</DisplayName>
+    <Description>Pump operation was interrupted by another command or by an external event.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>InvalidDirection</Identifier>
+    <DisplayName>Invalid Direction</DisplayName>
+    <Description>Flow direction of the pump is invalid.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>TargetRevolutionsOutOfRange</Identifier>
+    <DisplayName>Target Revolutions Out Of Range</DisplayName>
+    <Description>The selected target number of revolutions is either negative or above the maximum possible count.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>RPMOutOfRange</Identifier>
+    <DisplayName>RPM Out Of Range</DisplayName>
+    <Description>The selected RPM is either negative, too small, or above the maximum possible rate.</Description>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>CalibrationParameterOutOfRange</Identifier>
+    <DisplayName>Calibration Parameter Out Of Range</DisplayName>
+    <Description>The selected calibration parameter is either negative or above the maximum possible value.</Description>
+  </DefinedExecutionError>
+  <!-- Properties -->
+  <!-- Pump Connected -->
+  <Property>
+    <Identifier>PumpConnected</Identifier>
+    <DisplayName>Pump Connected</DisplayName>
+    <Description>Pump is connected.</Description>
+    <Observable>Yes</Observable>
+    <DataType>
+      <Basic>Boolean</Basic>
+    </DataType>
+  </Property>
+</Feature>

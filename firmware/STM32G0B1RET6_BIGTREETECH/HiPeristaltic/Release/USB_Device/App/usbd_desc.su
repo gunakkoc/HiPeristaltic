@@ -1,0 +1,7 @@
+../USB_Device/App/usbd_desc.c:222:11:USBD_CDC_DeviceDescriptor	0	static
+../USB_Device/App/usbd_desc.c:235:11:USBD_CDC_LangIDStrDescriptor	0	static
+../USB_Device/App/usbd_desc.c:267:11:USBD_CDC_ManufacturerStrDescriptor	8	static
+../USB_Device/App/usbd_desc.c:248:11:USBD_CDC_ProductStrDescriptor	8	static
+../USB_Device/App/usbd_desc.c:302:11:USBD_CDC_ConfigStrDescriptor	8	static
+../USB_Device/App/usbd_desc.c:321:11:USBD_CDC_InterfaceStrDescriptor	8	static
+../USB_Device/App/usbd_desc.c:280:11:USBD_CDC_SerialStrDescriptor	12	static

@@ -1,0 +1,9 @@
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:109:13:HAL_USARTEx_RxFifoFullCallback	1
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:124:13:HAL_USARTEx_TxFifoEmptyCallback	1
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:174:19:HAL_USARTEx_EnableSlaveMode	2
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:222:19:HAL_USARTEx_DisableSlaveMode	2
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:270:19:HAL_USARTEx_ConfigNSS	2
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:308:19:HAL_USARTEx_EnableFifoMode	2
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:349:19:HAL_USARTEx_DisableFifoMode	2
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:395:19:HAL_USARTEx_SetTxFifoThreshold	3
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_usart_ex.c:444:19:HAL_USARTEx_SetRxFifoThreshold	3

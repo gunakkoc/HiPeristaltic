@@ -1,0 +1,12 @@
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:164:19:HAL_FLASH_Program	56	static,ignoring_inline_asm
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:226:19:HAL_FLASH_Program_IT	48	static,ignoring_inline_asm
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:382:13:HAL_FLASH_EndOfOperationCallback	0	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:400:13:HAL_FLASH_OperationErrorCallback	0	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:282:6:HAL_FLASH_IRQHandler	16	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:433:19:HAL_FLASH_Unlock	0	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:457:19:HAL_FLASH_Lock	24	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:480:19:HAL_FLASH_OB_Unlock	0	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:504:19:HAL_FLASH_OB_Lock	24	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:527:19:HAL_FLASH_OB_Launch	0	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:572:10:HAL_FLASH_GetError	0	static
+../Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash.c:596:19:FLASH_WaitForLastOperation	24	static
