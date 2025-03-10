@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15001198.svg)](https://doi.org/10.5281/zenodo.15001198)
+
 # HiPeristaltic
 
 HiPeristaltic is a fully open-source (hardware and software) peristaltic pump with multiple independent channels, developed in Germany at **H**elmholtz **I**nstitute Erlangen-Nürnberg for Renewable Energy/Forschungszentrum Jülich.
