@@ -236,7 +236,7 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
   
 or
 
-- For a browser based Graphical User Interface(GUI), run [Sila Universal Client](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client). Then access https://127.0.0.1:8080 . The HiPeristaltic pumps within the same networks will then be discovered.
+- For a browser based Graphical User Interface(GUI), run [SiLa Universal Client](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client). Then access https://127.0.0.1:8080 . The HiPeristaltic pumps within the same networks will then be discovered.
 
 ### Serial with USB
 
