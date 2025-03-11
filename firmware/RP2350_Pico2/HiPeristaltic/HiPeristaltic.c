@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
+#include "hardware/uart.h"
+
+#define UART_ID uart1
+#define BAUD_RATE 115200
+#define UART_TX_PIN 4
+#define UART_RX_PIN 5
 
 #define tick_now time_us_32()
 
@@ -668,7 +674,7 @@ void (*cmd_fnc_lst[])() = {
   &get_sub_us_divider,
 };
 
-bool process_commands() {
+bool process_commands_usb() {
   if (snd_byte_cnt < MSG_LEN){ //data needs sending
     if (snd_byte_cnt){ //if first byte no need delay checking, already flushed
 		  if ((tick_now - snd_last_tick) <= USB_INTERMSG_DELAY) { //otherwise need to wait 1ms between transfers
@@ -701,18 +707,62 @@ bool process_commands() {
   }
   temp_c = getchar_timeout_us(0);
   if (temp_c == PICO_ERROR_TIMEOUT) { //no data to be read
-    if ((tick_now - rcv_last_tick) > SERIAL_INTERBYTE_TIMEOUT) { //handle interbyte timeout
-      rcv_byte_cnt = 0;
-      return true;
-    } else {
-      return false; //no data to be read, no timeout return false
+    if (rcv_byte_cnt) { //if not the first byte
+      if ((tick_now - rcv_last_tick) > SERIAL_INTERBYTE_TIMEOUT) { //handle interbyte timeout
+        rcv_byte_cnt = 0;
+        return true;
+      } else {
+        return false; //no data to be read, no timeout return false
+      }
     }
-  } else {
+  } else { //data was availabe and read to temp_c
     rcv_last_tick = tick_now;
     rcv_buffer[rcv_byte_cnt] = (uint8_t) temp_c;
     rcv_byte_cnt++;
     return true;
   }
+  return false;
+}
+
+bool process_commands_uart() {
+    if (snd_byte_cnt < MSG_LEN){ //data needs sending
+        if (!uart_is_writable(UART_ID)) {
+            return false;
+        }
+        uart_putc_raw(UART_ID, snd_buffer[snd_byte_cnt]);
+        snd_byte_cnt++;
+        return true;
+    } else if (snd_byte_cnt == MSG_LEN){ //entire package is sent
+        if (!uart_is_writable(UART_ID)) {
+            return false;
+        }
+        snd_byte_cnt++;
+        return true;
+    } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
+        rcv_byte_cnt = 0;
+        if (check_checksum()){
+            if (rcv_buffer[0] > CMD_COUNT) { //invalid command
+                err_cmd();
+                return true;
+            }
+            cmd_fnc_lst[rcv_buffer[0]](); //find the corresponding func by first byte as uint8
+            return true;
+        } else {
+            err_checksum(); //request data again
+        }
+        return true; //continue reading (if any) on next cycle
+    } else if (rcv_byte_cnt) { //if not the first byte
+        if ((tick_now - rcv_last_tick) > SERIAL_INTERBYTE_TIMEOUT) { //check interbyte timeout
+            rcv_byte_cnt = 0; //reset if timeout
+            return true;
+        }
+    } else if (uart_is_readable(UART_ID)) {
+        rcv_buffer[rcv_byte_cnt] = uart_getc(UART_ID);
+        rcv_byte_cnt++;
+        rcv_last_tick = tick_now;
+        return true;
+    }
+    return false;
 }
 
 void led_flip(){
@@ -856,9 +906,10 @@ void setup() {
   stdio_init_all();
   stdio_set_translate_crlf(&stdio_usb, false);
 
-  while (!stdio_usb_connected()) {
-    sleep_ms(500);
-  }
+  uart_init(UART_ID, BAUD_RATE);
+  gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+  gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+  uart_set_fifo_enabled(UART_ID, false); //disable UART TX fifo, as we will do non-blocking single byte writes
 
   gpio_init(PICO_DEFAULT_LED_PIN); gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
   gpio_put(PICO_DEFAULT_LED_PIN,false);
@@ -917,28 +968,45 @@ void setup() {
   gpio_put(m3_enabled_pin, false); //finally enable back the motor
   //-----------------------
 
-  sleep_ms(100);
+  sleep_ms(50);
   //signal_start();
-  //sleep_ms(100);
+  //sleep_ms(10);
 }
 
 void main() {
   setup();
+
   while(true){
 
-    //Step the motor if it is running and if delta time has passed
-    m0step();
-    m1step();
-    m2step();
-    m3step();
-    
-    //if this is used, ppr should be multiplied by 2
-    //m0step_sfalse();
-    //m1step_sfalse();
-    //m2step_sfalse();
-    //m3step_sfalse();
+    while(true){
+        if (stdio_usb_connected()) {
+            uart_deinit(UART_ID);
+            rcv_byte_cnt = 0;
+            snd_byte_cnt = MSG_LEN + 1;
+            sleep_ms(200); //wait for USB to be ready
+            break; //swicth to USB communication until restart
+        }
 
-    //Communicate
-    process_commands();
+        //Step the motor if it is running and if delta time has passed
+        m0step();
+        m1step();
+        m2step();
+        m3step();
+
+        //Communicate over UART while USB is NOT connected
+        process_commands_uart();
+    }
+
+    while(true){
+        //Step the motor if it is running and if delta time has passed
+        m0step();
+        m1step();
+        m2step();
+        m3step();
+
+        //Communicate over USB while USB is connected
+        process_commands_usb();
+    }
+
   }
 }

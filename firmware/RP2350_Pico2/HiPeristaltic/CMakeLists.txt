@@ -16,7 +16,7 @@ else()
     set(USERHOME $ENV{HOME})
 endif()
 set(sdkVersion 2.1.1)
-set(toolchainVersion 14_2_Rel1)
+set(toolchainVersion RISCV_RPI_2_0_0_5)
 set(picotoolVersion 2.1.1)
 set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
@@ -50,14 +50,8 @@ target_link_libraries(HiPeristaltic
 
 # Add the standard include files to the build
 target_include_directories(HiPeristaltic PRIVATE
-  ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}
 )
-
-# Add any user requested libraries
-target_link_libraries(HiPeristaltic 
-        hardware_timer
-        hardware_clocks
-        )
 
 pico_add_extra_outputs(HiPeristaltic)
 
