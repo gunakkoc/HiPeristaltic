@@ -41,8 +41,8 @@ echo "Installing Git..."
 sudo apt install -y git
 
 # Download HiPeristaltic
-echo "Downloading HiPeristaltic..."
-curl -L -O "https://github.com/HiPeristaltic/sila2/HiPeristaltic.zip"
+echo "Downloading HiPeristaltic Sila2 Python Interface..."
+curl -L -O "https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/silav2/HiPeristaltic.zip"
 
 # Unzip HiPeristaltic
 echo "Unzipping HiPeristaltic..."
