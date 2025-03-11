@@ -13,9 +13,9 @@ HiPeristaltic comes with an additional [**SiLa2**](https://sila-standard.com/sta
 ## Supported MCUs
 
 We are providing 3 firmwares to cover the most common microcontroller platforms:
-1. STM32, tested with STM32G0B1
+1. STM32, tested with STM32G0B1 and includes support for TMC2209 stepper motor driver.
 2. Arduino, tested with Arduino Uno Rev3(ATmega328P) and Arduino Mega 2560 (ATmega2560)
-3. Raspberry Pi Pico, test with Raspberry Pi Pico (RP2040) and Raspberry Pi Pico 2 (RP2350)
+3. Raspberry Pi Pico, tested with Raspberry Pi Pico (RP2040) and Raspberry Pi Pico 2 (RP2350)
 
 ## Tested and Recommended
 We've tested and recommend the following stack:
