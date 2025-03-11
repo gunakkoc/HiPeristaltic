@@ -159,9 +159,9 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
 
 ### Download HiPeristaltic:
 
-1. Download **HiPeristaltic**:
+1. Download **HiPeristaltic SiLa2/Python Interface**:
     ```bash
-    curl -L -O "[https://github.com/HiPeristaltic/tree/main/sila2/HiPeristaltic.zip](https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/silav2/HiPeristaltic.zip)"
+    curl -L -O "https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/silav2/HiPeristaltic.zip"
     ```
 
 2. Unzip to the home directory:
