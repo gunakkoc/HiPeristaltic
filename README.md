@@ -11,6 +11,7 @@ HiPeristaltic is built using 3D printed and off-the-shelf parts, with software b
 
 HiPeristaltic comes with an additional [**SiLa2**](https://sila-standard.com/standards/) software module for digital laboratories and for Self Driving Laboratories ([SDLs](https://doi.org/10.1021/acs.chemrev.4c00055)). This allows even **browser based GUI** control of the pump for non-coder users. **Python API** is also available under `/interface/`.
 
+For the stand-alone task based stepper motor driver developed for this project, check out [**MultiStepperLite**](https://github.com/gunakkoc/MultiStepperLite).
 
 ## Supported MCUs
 
