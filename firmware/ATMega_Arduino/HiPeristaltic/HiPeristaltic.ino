@@ -1,10 +1,19 @@
-//ETHERNET AND COMMUNICATION
-// #include <Ethernet.h>                                 //Load Ethernet Library
-// #include <EthernetUdp.h>                              //Load the Udp Library
-// byte mac[] = { 0xA8, 0x61, 0x0A, 0xAE, 0xA8, 0x49 };  //Assign mac address A8:61:0A:AE:A8:49
-// IPAddress ip(192, 168, 1, 51);                        //Assign the IP Adress
-// unsigned int localPort = 5000;                        // Assign a port to talk over
-// EthernetUDP Udp;                                      // Create a UDP Object
+// Copyright 2025 Gun Deniz Akkoc
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// https://github.com/gunakkoc/HiPeristaltic
+
 #define BUFFER_LEN 24                                 //suitable for Ethernet shield
 #define SERIAL_INTERBYTE_TIMEOUT_US 500000L
 #define MOTOR_MIN_PULSE_WIDTH_US 3L //1us for A4988, 2us for DRV8825, ~100ns for TMC2208 and TMC2209
