@@ -82,13 +82,13 @@ WantedBy=multi-user.target
 EOL
 
 # Enable and start the service
-echo "Enabling HiPeristaltic service to run on boot up."
+echo "Enabling HiPeristaltic service to run on boot up..."
 sudo systemctl enable hiperistaltic
 
 # Prompt for reboot
 read -p "The setup is complete. Would you like to reboot now? (y/n): " answer
 
-if [[ "$answer" == "y" || "$reboot_choice" == "Y" ]]; then
+if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
     echo "Rebooting the system..."
     sudo reboot
 else
