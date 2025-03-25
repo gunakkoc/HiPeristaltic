@@ -48,7 +48,7 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
 6. Select the inserted SD card.
 7. Press **Next**.
 
-#### OS Customizations:
+#### Raspberry Pi OS Customizations:
 1. **EDIT SETTINGS**
     - Under the **GENERAL** tab:
         - Check **Set hostname** → `hiernpi.local`.
@@ -68,25 +68,14 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
 
 ---
 
-### For Windows 10 and 11:
+### Install SSH (only required on Windows):
 
-1. Install OpenSSH on Windows using the following Administrative PowerShell command:
-    - Press **Windows + X** and open **Windows PowerShell (Admin)**.
-    - Run the following command:
+- Install OpenSSH on Windows using the following Administrative PowerShell command:
+    1. Press **Windows + X** and open **Windows PowerShell (Admin)**.
+    2. Run the following command:
     ```bash
     Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
     ```
-2. Download and install **Git for Windows** from [https://gitforwindows.org/](https://gitforwindows.org/).
-3. Open **Git Bash**.
-
-### For Linux:
-
-1. Open terminal.
-2. Install **Git**:
-    ```bash
-    sudo apt install git
-    ```
-
 ---
 
 ### Start Raspberry Pi:
@@ -101,15 +90,42 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
     ```
     - If asked, type **yes** and press **Enter** to continue connecting.
     - Enter the password when prompted.
+  
+### Automated Setup (Recommended)
 
-4. Enable UART
+- Simply download the installation script (`setup_hiperistaltic.sh`) and run.
+  
+1. Download:
+  
+    ```bash
+    cd ~
+    curl -L -O "https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/setup_hiperistaltic.sh"
+    ```
+    
+2. Give execution permission:
+
+    ```bash
+    sudo chmod +x ~/setup_hiperistaltic.sh
+    ```
+    
+3. Run the installation script:
+    ```bash
+    sudo ./setup_hiperistaltic.sh
+    ```
+
+### Manual Installation
+  
+#### Setup Communication
+
+-  Enable UART (recommended)
    ```bash
    sudo raspi-config nonint do_serial_hw 0
    sudo raspi-config nonint do_serial_cons 1
    ```
----
 
-### Install Mini-Forge and Dependencies:
+-  Alternatively, connect the MCU board (i.e., BIGTREETECH SKR MINI E3 V3.0) to the Pi via USB.
+
+#### Install Mini-Forge and Dependencies:
 
 1. Download **mini-forge**:
     ```bash
@@ -158,7 +174,7 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
 
 ---
 
-### Download HiPeristaltic:
+#### Download HiPeristaltic:
 
 1. Download **HiPeristaltic SiLa2/Python Interface**:
     ```bash
@@ -172,7 +188,7 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
 
 ---
 
-### Set up the Startup Script:
+#### Set up the Startup Script:
 
 1. Create a new `.sh` file to be executed on startup:
     ```bash
@@ -198,7 +214,7 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
 
 ---
 
-### Add systemd Service:
+#### Add systemd Service:
 
 1. Create a systemd service file:
     ```bash
