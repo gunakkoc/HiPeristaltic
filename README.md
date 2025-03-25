@@ -91,7 +91,7 @@ Note: Custom 3D printer board bootloaders are not supported at this point. There
     - If asked, type **yes** and press **Enter** to continue connecting.
     - Enter the password when prompted.
   
-### Automated Setup (Recommended)
+### Automated Installation (Recommended)
 
 - Simply download the installation script (`setup_hiperistaltic.sh`) and run.
   
