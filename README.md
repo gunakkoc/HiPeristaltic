@@ -7,7 +7,7 @@ HiPeristaltic is a fully open-source (hardware and software) peristaltic pump wi
 
 This repo will be part of an upcoming publication of the pump from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
 
-HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 250USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software.
+HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 280USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software.
 
 HiPeristaltic comes with an additional [**SiLa2**](https://sila-standard.com/standards/) software module for digital laboratories and for Self Driving Laboratories ([SDLs](https://doi.org/10.1021/acs.chemrev.4c00055)). This allows even **browser based GUI** control of the pump for non-coder users. **Python API** is also available under `/interface/`.
 
