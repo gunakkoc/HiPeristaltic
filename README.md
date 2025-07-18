@@ -20,19 +20,21 @@ The software stack is designed to be compatible with a wide range of MCUs (STM32
 
 # Getting Started Quickly
 
-In this section, only the most straightforwad software setup to enable pump through SiLa2 is provided. The hardware connections are assumed to be completed as given in the publication. Furthermore, this tutorial assumes the user has the following:
+In this section, only the most straightforwad software setup to enable pump through SiLa2 is provided. The hardware connections are assumed to be completed as given in the publication. The hardware setup manual can be found in [HiPeristaltic Hardware Zenodo](https://doi.org/10.5281/zenodo.15223798). Furthermore, this tutorial assumes the user has the following:
 
 - Raspberry Pi 4 Model B
 - A microSD card with minimum 16GB capacity.
 - BIGTREETECH SKR Mini E3 v3.0 board
 - Another microSD card with minimum 1MB capacity.
-- Rasberry Pi 4 Model B and the client (e.g., user or laboratory PC) computers being on the same network (i.e., both are connected to the same router or same Ethernet switch)
+- Raspberry Pi 4 Model B and the client (e.g., user or laboratory PC) computers being on the same network (i.e., both are connected to the same router or same Ethernet switch)
 
 ---
 
-1. Download and flash the Rasberry Pi image to the microSD card (one with 16GB+ capacity).
-2. Insert this microSD card to Rasberry Pi but don't turn it on yet.
-3. Download and place the firmware to the other SD Card(one with 1MB+ capacity).
+The following steps are the summarized points from the setup guide that includes more details and pictures/screenshots. The guide can be found in the [HiPeristaltic Software Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `Software_Setup_Guide.pdf`.
+
+1. Download and flash the Raspberry Pi image to the microSD card (one with 16GB+ capacity). The image is located in [HiPeristaltic Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `raspi_image.img`.
+2. Insert this microSD card to Raspberry Pi but don't turn it on yet.
+3. Download and place the firmware to the other SD Card(one with 1MB+ capacity). The firmware is located in [HiPeristaltic Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `FIRMWARE.bin`.
 4. Insert this microSD card to BIGTREETECH SKR Mini E3 v3.0 board, then power on and wait for 15 seconds.
 5. Power down and then re-start all devices.
 6. On your PC, Download SiLa2 Universal Client for [Windows](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client/-/jobs/artifacts/master/download?job=build_and_test) or for [other OS](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client/-/jobs/artifacts/master/download?job=build_and_test).
@@ -51,7 +53,7 @@ Continue with example calibration scenario:
 
 This sections outlines all steps used to create the installable images.
 
-## Step 1: Rasberry Pi Setup
+## Step 1: Raspberry Pi Setup
 
 1. Insert the SD card into your PC.
 2. Download Raspberry Pi Imager from [here](https://www.raspberrypi.com/software/) and run the software.
@@ -85,7 +87,7 @@ Install/enable OpenSSH on Windows using the following Administrative PowerShell 
 
 ## Step 3: Setting Up Server Side
 
-Following steps are tested with Rasberry Pi. For other OS, remove the following part from the 
+Following steps are tested with Raspberry Pi. For other OS, remove the following part from the 
 
 ### Method 1: Use the installation script
 
@@ -119,7 +121,7 @@ Following steps are tested with Rasberry Pi. For other OS, remove the following 
 
 ### Method 2: Manual/custom installation
 
-The typical installation steps are outlined here for Rasberry Pi. 
+The typical installation steps are outlined here for Raspberry Pi. 
 
 #### Setup Communication
 
@@ -129,7 +131,7 @@ The typical installation steps are outlined here for Rasberry Pi.
    sudo raspi-config nonint do_serial_cons 1
    ```
 
--  Alternatively, connect the MCU board (i.e., BIGTREETECH SKR MINI E3 V3.0) to the Rasberry Pi via USB. A new device should show up with the command `ls /dev/tty*` such as `/dev/ttyACM0`. Note this device name.
+-  Alternatively, connect the MCU board (i.e., BIGTREETECH SKR MINI E3 V3.0) to the Raspberry Pi via USB. A new device should show up with the command `ls /dev/tty*` such as `/dev/ttyACM0`. Note this device name.
 
 #### Install Mini-Forge and Dependencies:
 
@@ -262,9 +264,9 @@ To cover the most common microcontroller platforms, 3 firmwares are provided:
 	- Both UART and USB are supported. Defaults to UART, switches to USB connection automatically if detected and until reboot.
 2. For Arduino platform: tested with Arduino Uno Rev3(ATmega328P) and Arduino Mega 2560 (ATmega2560)
 	- Can be compiled with other Arduino compatible platforms such as `stm32duino`
-	- Can not be directly connected to Rasberry Pi models over UART. 
+	- Can not be directly connected to Raspberry Pi models over UART. 
 3. Raspberry Pi Pico, tested with Raspberry Pi Pico (RP2040) and Raspberry Pi Pico 2 (RP2350)
-	- Can be connected Rasberry Pi models over UART. 
+	- Can be connected Raspberry Pi models over UART. 
 	
 The GPIO pins needs to be adjusted for the specific case.
 
@@ -296,7 +298,7 @@ The following connecitity options are available, depending on the selected MCU.
 
 1. Networking (i.e., via Ethernet or WiFi) through SiLa2.
 2. Serial over USB for direct PC to MCU communication, without SiLa2 layer.
-3. Serial over UART, typically supported only by SBCs such as Rasberry Pi, used for direct communication as in USB.
+3. Serial over UART, typically supported only by SBCs such as Raspberry Pi, used for direct communication as in USB.
 
 # About Pump Configuration and Usage
 
