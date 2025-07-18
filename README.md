@@ -291,9 +291,11 @@ In any case, the active microstepping value (e.g., 1, 2, 4, 8) needs to be speci
 
 ## Connectivity
 
-1. Networking (i.e., via Ethernet or WiFi) through SiLa2
-2. Serial over USB
-3. Serial over UART, typically supported only by SBCs such as Rasberry Pi.
+The following connecitity options are available, depending on the selected MCU.
+
+1. Networking (i.e., via Ethernet or WiFi) through SiLa2.
+2. Serial over USB for direct PC to MCU communication, without SiLa2 layer.
+3. Serial over UART, typically supported only by SBCs such as Rasberry Pi, used for direct communication as in USB.
 
 # About Pump Configuration and Usage
 
