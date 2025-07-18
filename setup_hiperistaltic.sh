@@ -20,8 +20,8 @@ bash Miniforge3-$(uname)-$(uname -m).sh -b
 
 # Initialize conda
 echo "Initializing conda..."
-~/miniforge3/bin/conda init
-source ~/.bashrc
+/home/hte/miniforge3/bin/conda init
+source /home/hte/.bashrc
 
 # Create conda environment with Python 3.9
 echo "Creating conda environment 'hiperis' with Python 3.9..."
@@ -46,24 +46,24 @@ curl -L -O "https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/silav2
 
 # Unzip HiPeristaltic
 echo "Unzipping HiPeristaltic..."
-unzip HiPeristaltic.zip -d ~
+unzip HiPeristaltic.zip -d /home/hte/
 
 # Create run_hiperistaltic.sh script
 echo "Creating run_hiperistaltic.sh script..."
-cat <<EOL > ~/run_hiperistaltic.sh
+cat <<EOL > /home/hte/run_hiperistaltic.sh
 #!/bin/bash
 # Get the first IPv4 address (excluding loopback)
-CA_PATH=~/HiPeristaltic/HiPeristaltic_CA.pem
+CA_PATH=/home/hte/HiPeristaltic/HiPeristaltic_CA.pem
 IP_ADDR=\$(hostname -I | awk '{print \$1}')
-source ~/miniforge3/etc/profile.d/conda.sh
+source /home/hte/miniforge3/etc/profile.d/conda.sh
 conda activate hiperis
-cd ~/HiPeristaltic
+cd /home/hte/HiPeristaltic
 python -m HiPeristaltic --ip-address "\$IP_ADDR" --port 50052 --ca-export-file "\$CA_PATH"
 EOL
 
 # Make the script executable
 echo "Making run_hiperistaltic.sh executable..."
-sudo chmod +x ~/run_hiperistaltic.sh
+sudo chmod +x /home/hte/run_hiperistaltic.sh
 
 # Create systemd service
 echo "Creating systemd service for HiPeristaltic..."
