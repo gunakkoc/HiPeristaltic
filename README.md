@@ -9,9 +9,9 @@ This repo will be part of an upcoming publication of the pump from team [High-Th
 
 HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 280USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software.
 
-HiPeristaltic includes a [**SiLa2**](https://sila-standard.com/standards/) software module for easy integration to digital laboratories and for Self Driving Laboratories ([SDLs](https://doi.org/10.1021/acs.chemrev.4c00055)). SiLa2 also allows controlling the pump with a **GUI over web browser** for non-coder users. Additionally, **Python API** is available under `/interface/` for non-SiLa2 integration.
+HiPeristaltic includes a [**SiLa2**](https://sila-standard.com/standards/) software module for easy integration to digital laboratories and for Self Driving Laboratories ([SDLs](https://doi.org/10.1021/acs.chemrev.4c00055)). SiLa2 also allows controlling the pump with a **GUI over web browser** for non-coder users. Additionally, **Python API** is available under `/interface/` for non-SiLa integration.
 
-The software stack is designed to be compatible with a wide range of MCUs (STM32, Arduino, Pico), stepper motor drivers (A4988, DRV8825, TMC2209) and connectivity options (UART,USB,Ethernet/Wifi).
+The software stack is designed to be compatible with a wide range of MCUs (STM32, Arduino, Pico), stepper motor drivers (A4988, DRV8825, TMC2209, ...) and connectivity options (UART,USB,Ethernet/Wifi).
 
 - Users who just want to get started can refer to [Getting Started Quickly](#Getting-Started-Quickly). This is the best option to replicate HiPeristaltic as published and with the recommended hardware.
 - For experienced users, a step by step guide is given in [Advanced Installation](#Advanced-Installation) to enable customizations.
@@ -41,10 +41,11 @@ In this section, only the most straightforwad software setup to enable pump thro
 9. Browse to [http://localhost:8080/](http://localhost:8080/) and Discover Devices. HiPeristaltic should be discovered now.
 
 Continue with example calibration scenario:
-9. Fill in the tubings (e.g., with pure water) by running a pump channel, for instance by using `StartPumpCalibration` with `PumpIndex` 0, 40 `RPM`, 50 `TargetRevolutions` and with the correct direction set by `cw` for clockwise and `ccw` for counter-clockwise.
-9. Once this task is finished, place a container which is already weighted when empty, and run `StartPumpCalibration` with desired parameters, note the `TargetRevolutions` value.
-10. Weight the container again and calculate the pumped liquid weight. Convert the weight to volume in microliters using the density of the liquid.
-11. Divide the volume with `TargetRevolutions` to obtain calibration factor with units "microliters per revolution". Use SetPumpCalibration function with this calibration factor.
+
+10. Fill in the tubings (e.g., with pure water) by running a pump channel, for instance by using `StartPumpCalibration` with `PumpIndex` 0, 40 `RPM`, 50 `TargetRevolutions` and with the correct direction set by `cw` for clockwise and `ccw` for counter-clockwise.
+11. Once this task is finished, place a container which is already weighted when empty, and run `StartPumpCalibration` with desired parameters, note the `TargetRevolutions` value.
+12. Weight the container again and calculate the pumped liquid weight. Convert the weight to volume in microliters using the density of the liquid.
+13. Divide the volume with `TargetRevolutions` to obtain calibration factor with units "microliters per revolution". Use SetPumpCalibration function with this calibration factor.
 
 # Advanced Installation
 
