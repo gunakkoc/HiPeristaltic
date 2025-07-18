@@ -86,35 +86,33 @@ Following steps are tested with Rasberry Pi. For other OS, remove the following 
 
 ### Method 1: Use the installation script
 
-	1. Download:
+1. Download:
+   
+	```bash
+	cd ~
+	curl -L -O "https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/setup_hiperistaltic.sh"
+	```
 	
-		
-	  
-		```bash
-		cd ~
-		curl -L -O "https://github.com/gunakkoc/HiPeristaltic/raw/refs/heads/main/setup_hiperistaltic.sh"
-		```
-		
-		The script is designed for Raspberry Pi OS. Remove the following lines for other Debian based distros.
-		
-		```bash
-		# Enable UART
-		echo "Enabling UART..."
-		sudo raspi-config nonint do_serial_hw 0
-		sudo raspi-config nonint do_serial_cons 1
-		```
-		
-	2. Give execution permission:
+	The script is designed for Raspberry Pi OS. Remove the following lines for other Debian based distros.
+	
+	```bash
+	# Enable UART
+	echo "Enabling UART..."
+	sudo raspi-config nonint do_serial_hw 0
+	sudo raspi-config nonint do_serial_cons 1
+	```
+ 
+ 2. Give execution permission:
 
-		```bash
-		sudo chmod +x ~/setup_hiperistaltic.sh
-		```
+	```bash
+	sudo chmod +x ~/setup_hiperistaltic.sh
+	```
 		
-	3. Run the installation script:
-		```bash
-		sudo ./setup_hiperistaltic.sh
-		```
-
+3. Run the installation script:
+   
+	```bash
+	sudo ./setup_hiperistaltic.sh
+	```
 
 ### Method 2: Manual/custom installation
 
