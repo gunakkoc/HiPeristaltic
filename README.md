@@ -30,10 +30,10 @@ In this section, only the most straightforwad software setup to enable pump thro
 
 ---
 
-1. Download and flash the Rasberry Pi image to the microSD card.
+1. Download and flash the Rasberry Pi image to the microSD card (one with 16GB+ capacity).
 2. Insert this microSD card to Rasberry Pi but don't turn it on yet.
-3. Download and place the firmware to the other SD Card.
-4. Insert this SD card to BIGTREETECH SKR Mini E3 v3.0 board, then power on and wait for 15 seconds.
+3. Download and place the firmware to the other SD Card(one with 1MB+ capacity).
+4. Insert this microSD card to BIGTREETECH SKR Mini E3 v3.0 board, then power on and wait for 15 seconds.
 5. Power down and then re-start all devices.
 6. On your PC, Download SiLa2 Universal Client for [Windows](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client/-/jobs/artifacts/master/download?job=build_and_test) or for [other OS](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client/-/jobs/artifacts/master/download?job=build_and_test).
 7. Make sure [Java 8](https://adoptium.net/?variant=openjdk11) is installed,
