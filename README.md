@@ -28,6 +28,8 @@ In this section, only the most straightforwad software setup to enable pump thro
 - Another microSD card with 1MB capacity.
 - Rasberry Pi 4 Model B and the client (e.g., user or laboratory PC) computers being on the same network (i.e., both are connected to the same router or same Ethernet switch)
 
+---
+
 1. Download and flash the Rasberry Pi image to the microSD card.
 2. Insert this microSD card to Rasberry Pi but don't turn it on yet.
 3. Download and place the firmware to the other SD Card.
