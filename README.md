@@ -25,7 +25,7 @@ In this section, only the most straightforwad software setup to enable pump thro
 - Raspberry Pi 4 Model B
 - A microSD card with minimum 16GB capacity.
 - BIGTREETECH SKR Mini E3 v3.0 board
-- Another microSD card with 1MB capacity.
+- Another microSD card with minimum 1MB capacity.
 - Rasberry Pi 4 Model B and the client (e.g., user or laboratory PC) computers being on the same network (i.e., both are connected to the same router or same Ethernet switch)
 
 ---
