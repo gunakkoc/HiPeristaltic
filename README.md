@@ -42,10 +42,10 @@ In this section, only the most straightforwad software setup to enable pump thro
 
 Continue with example calibration scenario:
 
-10. Fill in the tubings (e.g., with pure water) by running a pump channel, for instance by using `StartPumpCalibration` with `PumpIndex` 0, 40 `RPM`, 50 `TargetRevolutions` and with the correct direction set by `cw` for clockwise and `ccw` for counter-clockwise.
+10. Fill in the tubings (e.g., with pure water) by running a pump channel, for instance by using `StartPumpCalibration` with `PumpIndex : 0`, `RPM : 40`, `TargetRevolutions : 50` and with the correct direction set by `cw` for clockwise and `ccw` for counter-clockwise.
 11. Once this task is finished, place a container which is already weighted when empty, and run `StartPumpCalibration` with desired parameters, note the `TargetRevolutions` value.
 12. Weight the container again and calculate the pumped liquid weight. Convert the weight to volume in microliters using the density of the liquid.
-13. Divide the volume with `TargetRevolutions` to obtain calibration factor with units "microliters per revolution". Use SetPumpCalibration function with this calibration factor.
+13. Divide the volume with `TargetRevolutions` to obtain calibration factor with units "microliters per revolution". Use `SetPumpCalibration` function with this calibration factor.
 
 # Advanced Installation
 
