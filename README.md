@@ -5,7 +5,7 @@
 
 HiPeristaltic is a fully open-source (hardware and software) peristaltic pump with multiple independent channels, developed in Germany at **H**elmholtz **I**nstitute Erlangen-Nürnberg for Renewable Energy/Forschungszentrum Jülich.
 
-This repo will be part of an upcoming publication of the pump from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
+This repo will be part of an upcoming publication from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
 
 HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 280USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software.
 
@@ -51,9 +51,17 @@ Continue with example calibration scenario:
 
 # Advanced Installation
 
-This sections outlines all steps used to create the installable images.
+There are a total of 4 software layers:
+1. Firmware for the MCU
+2. Python interface, directly interacting with the firmware
+3. SiLa2 server, wrapping the Python driver, running on a dedicated (small) computer
+4. SiLa2 client, in any SiLa2 supported language (Python, Java, C#) or using web application GUI (Universal SiLa client)
 
-## Step 1: Raspberry Pi Setup
+After deciding on the MCU, the motor drivers' GPIO pins must be set in the corresponding firmware. Once the firmware is compiled and flashed, the pump can be connected via USB and can be controlled directly with Python interface. A more elegant alternative is controlling the pump through SiLa2 that ideally runs on a dedicated Single Board Computer (SBC).
+
+This next sections outline all steps used to setting up of such dedicated SiLa2 server on an Rasberry Pi SBC. The included Rasberry Pi image is also created using these steps.
+
+## Step 1: Raspberry Pi Initial Setup
 
 1. Insert the SD card into your PC.
 2. Download Raspberry Pi Imager from [here](https://www.raspberrypi.com/software/) and run the software.
@@ -87,9 +95,18 @@ Install/enable OpenSSH on Windows using the following Administrative PowerShell 
 
 ## Step 3: Setting Up Server Side
 
-Following steps are tested with Raspberry Pi. For other OS, remove the following part from the 
+For a Linux server to which the MCU is connected, the process starts by SSH'ing into the server. For Windows based servers, we don't have a guide yet.
+
+Following steps are tested with Raspberry Pi. For other Linux systems, you might need to enable UART manually or connect via USB and point to serial port of connection by changing the following part in `HiPeristaltic.toml`:
+
+Example:
+```
+"serial_port" =  "tty/USB0"
+```
 
 ### Method 1: Use the installation script
+
+Again for Rasberry Pi, `setup_hiperistaltic.sh` should take of everything, but you might need to change the username dependent paths. E.g., `hte` to `someusername`.
 
 1. Download:
    
@@ -121,7 +138,9 @@ Following steps are tested with Raspberry Pi. For other OS, remove the following
 
 ### Method 2: Manual/custom installation
 
-The typical installation steps are outlined here for Raspberry Pi. 
+The typical installation steps are outlined in detail here for Raspberry Pi. For your own application, a change to username-dependent paths might be required. E.g., `/home/hte/` to ` /home/someusername`.
+
+The `raspi-config` commands are also Rasberry Pi specific.
 
 #### Setup Communication
 
@@ -194,7 +213,7 @@ The typical installation steps are outlined here for Raspberry Pi.
 
 #### Set up the startup script:
 
-This script can be used to manually start the HiPeristaltic SiLa2 server.
+This script can be used to (manually) start the HiPeristaltic SiLa2 server.
 
 1. Create a new `.sh` file to be executed on startup:
     ```bash
@@ -220,7 +239,7 @@ This script can be used to manually start the HiPeristaltic SiLa2 server.
 
 #### Add systemd Service:
 
-This to start HiPeristaltic SiLav2 server automatically when the system boots.
+Enable starting the HiPeristaltic SiLav2 server automatically when the system boots.
 
 1. Create a systemd service file:
     ```bash
@@ -259,18 +278,18 @@ This to start HiPeristaltic SiLav2 server automatically when the system boots.
 
 To cover the most common microcontroller platforms, 3 firmwares are provided:
 1. For STM32 platform: tested with STM32G0B1RET6.
-	- Includes an utilizes a driver for TMC2209 stepper motor driver to maximize performance.
+	- Utilizes an included driver for TMC2209 to maximize performance.
 	- Requiries STM32Cube and STM32 debugger.
 	- Both UART and USB are supported. Defaults to UART, switches to USB connection automatically if detected and until reboot.
 2. For Arduino platform: tested with Arduino Uno Rev3(ATmega328P) and Arduino Mega 2560 (ATmega2560)
 	- Can be compiled with other Arduino compatible platforms such as `stm32duino`
-	- Can not be directly connected to Raspberry Pi models over UART. 
+	- Can not be directly connected to Raspberry Pi models over UART. Hence, USB only.
 3. Raspberry Pi Pico, tested with Raspberry Pi Pico (RP2040) and Raspberry Pi Pico 2 (RP2350)
-	- Can be connected Raspberry Pi models over UART. 
+	- Can be connected Raspberry Pi models over UART.
 	
-The GPIO pins needs to be adjusted for the specific case.
+The GPIO pins for motor drivers needs to be changed accordingly in the firmware unless BIGTREETECH SKR Mini E3 v3.0 is used.
 
-When connecting via USB, the condiguration file `HiPeristaltic.toml` needs to be adjusted, for instance:
+When connecting via USB, the serial port needs to be set in the configuration file `HiPeristaltic.toml`, for instance:
 	```
 	"serial_port" =  "tty/USB0"
 	```
@@ -286,15 +305,15 @@ Basically all 2-phase stepper drivers that can operate with an step pin can be u
 5. TB6600
 6. DM556
 
-The recommended board that is BIGTREETECH SKR Mini E3 v3.0 comes with TMC2209 drivers embedded. Perhaps the cheapest alternative is using an Arduino+CNC Shield combo with A4988 drivers attached.
+The recommended board that is BIGTREETECH SKR Mini E3 v3.0 comes with 4 TMC2209 stepper motor drivers embedded. If budget is the ultimate concern, perhaps the cheapest alternative is using an Arduino+CNC Shield combo with A4988 drivers attached.
 
-With STM32 firmware, one can setup U(S)ART as necessary and the included TMC2209 driver can be used for full feature access.
+With the provided STM32 firmware, TMC2209 drivers on the BIGTREETECH SKR Mini E3 v3.0 are controlled via UART communication which allows further optimizations as well as adjustable microstepping on-the-fly. All other firmwares treat TMC2209 as a standard stepper driver.
 
-In any case, the active microstepping value (e.g., 1, 2, 4, 8) needs to be specified in the `HiPeristaltic.toml` file, per driver.
+Moreover, for standard stepper drivers or for other firmwares, the active microstepping value (e.g., 1, 2, 4, 8 and so on) needs to be specified in the `HiPeristaltic.toml` file, per driver. Alternatively, one can implement their own microstepping changing functionality (i.e., by swithing microstepping/resolution GPIO pins) and enable it within the firmware.
 
 ## Connectivity
 
-The following connecitity options are available, depending on the selected MCU.
+The following connectivity options are available, depending on the selected MCU, firmware and interface combination.
 
 1. Networking (i.e., via Ethernet or WiFi) through SiLa2.
 2. Serial over USB for direct PC to MCU communication, without SiLa2 layer.
@@ -302,8 +321,56 @@ The following connecitity options are available, depending on the selected MCU.
 
 # About Pump Configuration and Usage
 
-The default configuration file is "HiPeristaltic.toml", and by default within the same folder as "HiPeristalticInterface.py". Usually, no modifications to this file are necessary. 
+The default configuration file is `HiPeristaltic.toml`, and by default within the same folder as `HiPeristalticInterface.py`. Usually, no modifications to this file are necessary. However, if the stepper motor driver is using a fixed microstepping, this needs to be defined in `HiPeristaltic.toml` (e.g., `motor_usteps = 16`). Additionally, if the connected computer is not using the standart UART serial port of Rasberry Pi computer (such as a generic Windows computer), then `serial_port` setting also needs to set up correctly.
 
-The calibration factor can be accessed under ```calibration_uL_per_Rev``` for each pump. Note that the provided SiLa2 client can be used to remotely change this parameter which is then immediately saved to the configuration file.
+The calibration factor can be accessed under ```calibration_uL_per_Rev``` for each pump from the `HiPeristaltic.toml` file. Note that the provided SiLa2 client can be used to remotely change this parameter which is then immediately saved to this file.
 
 The Python interface can be used to control the pump without SiLa2. It is built with minimum dependencies, with only additional libraries being `numpy` and `serial`.
+
+Here are some examples of essential functionalities using the Python interface:
+```python
+
+test = HiPeristalticInterface()
+
+#load config and connect
+test.load_config() #loads HiPeristaltic.toml within the same folder by default
+test.connect()
+
+#print some informations about the first channel (0 indexed)
+print("Max RPM of Pump 1:",test.pumps[0].get_max_rpm())
+print("Max volume(L) of Pump 1:",(test.pumps[0].get_max_volume_uL() / 1e6))
+print("Min volume(uL) of Pump 1:",test.pumps[0].get_min_volume_uL())
+print("Max flow rate(uL/s) of Pump 1:",test.pumps[0].get_max_flow_rate_uLpersec())
+print("Min flow rate(uL/s) of Pump 1:",test.pumps[0].get_min_flow_rate_uLpersec())
+
+
+#run some pumps
+test.pumps[3].pump_volume(target_volume_uL=60,flow_rate_uLpersec=12,direction="cw",blocking=True)
+test.pumps[1].pump_continuous(flow_rate_uLpersec=10,direction="cw")
+test.pumps[2].pump_continuous(flow_rate_uLpersec=10,direction="ccw")
+test.pumps[0].pump_volume(target_volume_uL=120,flow_rate_uLpersec=12,direction="ccw",blocking=False)
+
+#query status
+print("Flow rate (uL/s): ", test.pumps[0].get_flow_rate_uLpersec())
+while test.pumps[0].get_running():
+	print("Remaining time (s):" , test.pumps[0].get_remaining_time().total_seconds())
+	print("Remaining volume (uL):" , test.pumps[0].get_remaining_volume_uL())
+	sleep(1)
+	
+	
+#stop, start, resume a pump
+test.pumps[2].pump_stop()
+test.pumps[2].pump_volume(target_volume_uL=60,flow_rate_uLpersec=12,direction="cw",blocking=False)
+sleep(1)
+test.pumps[2].pump_stop()
+sleep(1)
+test.pumps[2].pump_resume()
+while test.pumps[2].get_running():
+	print("Remaining time (s):" , test.pumps[2].get_remaining_time().total_seconds())
+	print("Remaining volume (uL):" , test.pumps[2].get_remaining_volume_uL())
+	sleep(0.5)
+
+#change some config and save
+test.pumps[i].uL_per_rev = 60 #change calibration factor
+pump.save_config()
+```
