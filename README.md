@@ -30,7 +30,7 @@ In this section, only the most straightforwad software setup to enable pump thro
 
 ---
 
-The following steps are the summarized points from the setup guide that includes more details and pictures/screenshots. The guide can be found in the [HiPeristaltic Software Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `Software_Setup_Guide.pdf`.
+The following steps are the summarized points from the setup guide that includes more details and pictures/screenshots. The guide can be found in the [HiPeristaltic Software Zenodo](https://doi.org/10.5281/zenodo.15001197) or directly here [Software_Setup_Guide.pdf](https://zenodo.org/records/16121928/files/Software_Setup_Guide.pdf?download=1).
 
 1. Download and flash the Raspberry Pi image to the microSD card (one with 16GB+ capacity). The image is located in [HiPeristaltic Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `raspi_image.img`.
 2. Insert this microSD card to Raspberry Pi but don't turn it on yet.
