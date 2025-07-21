@@ -343,8 +343,7 @@ print("Min volume(uL) of Pump 1:",test.pumps[0].get_min_volume_uL())
 print("Max flow rate(uL/s) of Pump 1:",test.pumps[0].get_max_flow_rate_uLpersec())
 print("Min flow rate(uL/s) of Pump 1:",test.pumps[0].get_min_flow_rate_uLpersec())
 
-
-#run some pumps
+#run the pumps; cw: clockwise, ccw: counter-clockwise, blocking=True blocks until the pumping task is over, blocking=False continues to next line without waiting
 test.pumps[3].pump_volume(target_volume_uL=60,flow_rate_uLpersec=12,direction="cw",blocking=True)
 test.pumps[1].pump_continuous(flow_rate_uLpersec=10,direction="cw")
 test.pumps[2].pump_continuous(flow_rate_uLpersec=10,direction="ccw")
