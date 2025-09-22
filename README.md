@@ -5,13 +5,13 @@
 
 HiPeristaltic is a fully open-source (hardware and software) peristaltic pump with multiple independent channels, developed in Germany at **H**elmholtz **I**nstitute Erlangen-Nürnberg for Renewable Energy/Forschungszentrum Jülich.
 
-This repo will be part of an upcoming publication from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
+This repo is a part of our publication [**An open-source peristaltic pump with multiple independent channels for laboratory automation**](https://doi.org/10.1039/D5DD00157A) from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
 
 HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 280USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software.
 
 HiPeristaltic includes a [**SiLa2**](https://sila-standard.com/standards/) software module for easy integration to digital laboratories and for Self Driving Laboratories ([SDLs](https://doi.org/10.1021/acs.chemrev.4c00055)). SiLa2 also allows controlling the pump with a **GUI over web browser** for non-coder users. Additionally, **Python API** is available under `/interface/` for non-SiLa integration.
 
-The software stack is designed to be compatible with a wide range of MCUs (STM32, Arduino, Pico), stepper motor drivers (A4988, DRV8825, TMC2209, ...) and connectivity options (UART,USB,Ethernet/Wifi).
+The software stack is designed to be compatible with a wide range of MCUs (STM32, Arduino, Pico), stepper motor drivers (A4988, DRV8825, TMC2209, ...) and connectivity options (UART, USB, Ethernet/Wifi).
 
 - Users who just want to get started can refer to [Getting Started Quickly](#Getting-Started-Quickly). This is the best option to replicate HiPeristaltic as published and with the recommended hardware.
 - For experienced users, a step by step guide is given in [Advanced Installation](#Advanced-Installation) to enable customizations.
@@ -34,7 +34,7 @@ The following steps are the summarized points from the setup guide that includes
 
 1. Download and flash the Raspberry Pi image to the microSD card (one with 16GB+ capacity). The image is located in [HiPeristaltic Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `raspi_image.img`.
 2. Insert this microSD card to Raspberry Pi but don't turn it on yet.
-3. Download and place the firmware to the other SD Card(one with 1MB+ capacity). The firmware is located in [HiPeristaltic Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `FIRMWARE.bin`.
+3. Download and place the firmware to the other SD Card (one with 1MB+ capacity). The firmware is located in [HiPeristaltic Zenodo](https://doi.org/10.5281/zenodo.15001197) page with filename `FIRMWARE.bin`.
 4. Insert this microSD card to BIGTREETECH SKR Mini E3 v3.0 board, then power on and wait for 15 seconds.
 5. Power down and then re-start all devices.
 6. On your PC, Download SiLa2 Universal Client for [Windows](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client/-/jobs/artifacts/master/download?job=build_and_test) or for [other OS](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client/-/jobs/artifacts/master/download?job=build_and_test).
@@ -54,7 +54,7 @@ Continue with example calibration scenario:
 There are a total of 4 software layers:
 1. Firmware for the MCU
 2. Python interface, directly interacting with the firmware
-3. SiLa2 server, wrapping the Python driver, running on a dedicated (small) computer
+3. SiLa2 server, wrapping the Python driver, running on a dedicated computer
 4. SiLa2 client, in any SiLa2 supported language (Python, Java, C#) or using web application GUI (Universal SiLa client)
 
 After deciding on the MCU, the motor drivers' GPIO pins must be set in the corresponding firmware. Once the firmware is compiled and flashed, the pump can be connected via USB and can be controlled directly with Python interface. A more elegant alternative is controlling the pump through SiLa2 that ideally runs on a dedicated Single Board Computer (SBC).
@@ -279,9 +279,9 @@ Enable starting the HiPeristaltic SiLav2 server automatically when the system bo
 To cover the most common microcontroller platforms, 3 firmwares are provided:
 1. For STM32 platform: tested with STM32G0B1RET6.
 	- Utilizes an included driver for TMC2209 to maximize performance.
-	- Requiries STM32Cube and STM32 debugger.
-	- Both UART and USB are supported. Defaults to UART, switches to USB connection automatically if detected and until reboot.
-2. For Arduino platform: tested with Arduino Uno Rev3(ATmega328P) and Arduino Mega 2560 (ATmega2560)
+	- Requires STM32Cube and STM32 debugger.
+	- Both UART and USB are supported. Defaults to UART, switches to USB connection automatically if USB connection is detected and until reboot.
+2. For Arduino platform: tested with Arduino Uno Rev3 (ATmega328P) and Arduino Mega 2560 (ATmega2560)
 	- Can be compiled with other Arduino compatible platforms such as `stm32duino`
 	- Can not be directly connected to Raspberry Pi models over UART. Hence, USB only.
 3. Raspberry Pi Pico, tested with Raspberry Pi Pico (RP2040) and Raspberry Pi Pico 2 (RP2350)
@@ -309,15 +309,15 @@ The recommended board that is BIGTREETECH SKR Mini E3 v3.0 comes with 4 TMC2209 
 
 With the provided STM32 firmware, TMC2209 drivers on the BIGTREETECH SKR Mini E3 v3.0 are controlled via UART communication which allows further optimizations as well as adjustable microstepping on-the-fly. All other firmwares treat TMC2209 as a standard stepper driver.
 
-Moreover, for standard stepper drivers or for other firmwares, the active microstepping value (e.g., 1, 2, 4, 8 and so on) needs to be specified in the `HiPeristaltic.toml` file, per driver. Alternatively, one can implement their own microstepping changing functionality (i.e., by swithing microstepping/resolution GPIO pins) and enable it within the firmware.
+Moreover, for standard stepper drivers or for other firmwares, the active microstepping value (e.g., 1, 2, 4, 8 and so on) needs to be specified in the `HiPeristaltic.toml` file, per driver. Alternatively, one can implement their own microstepping changing functionality (i.e., by switching microstepping/resolution pins) and enable it within the firmware.
 
 ## Connectivity
 
 The following connectivity options are available, depending on the selected MCU, firmware and interface combination.
 
-1. Networking (i.e., via Ethernet or WiFi) through SiLa2.
+1. SiLa2 over Ethernet or WiFi.
 2. Serial over USB for direct PC to MCU communication, without SiLa2 layer.
-3. Serial over UART, typically supported only by SBCs such as Raspberry Pi, used for direct communication as in USB.
+3. Serial over UART, typically supported only by SBCs such as Raspberry Pi.
 
 # About Pump Configuration and Usage
 
@@ -325,7 +325,7 @@ The default configuration file is `HiPeristaltic.toml`, and by default within th
 
 The calibration factor can be accessed under ```calibration_uL_per_Rev``` for each pump from the `HiPeristaltic.toml` file. Note that the provided SiLa2 client can be used to remotely change this parameter which is then immediately saved to this file.
 
-The Python interface can be used to control the pump without SiLa2. It is built with minimum dependencies, with only additional libraries being `numpy` and `serial`.
+The Python interface can be used to control the pump over USB serial and without SiLa2. It is built with minimum dependencies, with only additional libraries being `numpy` and `pySerial`.
 
 Here are some examples of essential functionalities using the Python interface:
 ```python
