@@ -1313,7 +1313,7 @@ static void MX_USART3_Init(void)
   husart3.Init.WordLength = USART_WORDLENGTH_8B;
   husart3.Init.StopBits = USART_STOPBITS_1;
   husart3.Init.Parity = USART_PARITY_NONE;
-  husart3.Init.Mode = USART_MODE_TX_RX;
+  husart3.Init.Mode = USART_MODE_TX;
   husart3.Init.CLKPolarity = USART_POLARITY_LOW;
   husart3.Init.CLKPhase = USART_PHASE_1EDGE;
   husart3.Init.CLKLastBit = USART_LASTBIT_DISABLE;
