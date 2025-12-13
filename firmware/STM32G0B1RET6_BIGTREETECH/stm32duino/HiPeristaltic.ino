@@ -1166,7 +1166,7 @@ void setup() {
   Serial5.setRx(PD2);
   Serial5.setTx(PD3);
   Serial5.begin(115200, SERIAL_8N1);
-  Serial3.setTx(PC_10);
+  Serial3.setTx(PC10);
   Serial3.begin(115200);
 
   
