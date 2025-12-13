@@ -63,7 +63,7 @@ class Pump():
 
     def __init__(self, motor_ind: int, sub_us_divider: np.float64 = None,
                  uL_per_rev: float = None, gear_ratio: float = None, motor_usteps: int = None, max_rpm: float = None, direction_default: str = None,
-                 direction_inverse: bool = None,
+                 motor_dir_inverse: bool = None,
                  func_pump_send_cmd = None):
         
         self._motor_ind = motor_ind
@@ -80,8 +80,8 @@ class Pump():
             self._max_rpm = max_rpm
         if not (direction_default is None):
             self.direction_default = direction_default
-        if not (direction_inverse is None):
-            self._motor_dir_inverse = direction_inverse
+        if not (motor_dir_inverse is None):
+            self._motor_dir_inverse = motor_dir_inverse
         self._func_pump_send_cmd = func_pump_send_cmd
 
         self._event_motor_stopped = Event()
@@ -932,7 +932,6 @@ class HiPeristalticInterface():
                 "motor_dir_inverse": self.pumps[i]._motor_dir_inverse,
                 "motor_usteps": self.pumps[i]._motor_usteps,
                 "direction_default": self.pumps[i].direction_default,
-                "direction_inverse": self.pumps[i]._motor_dir_inverse,
                 "max_rpm": self.pumps[i]._max_rpm,
                 "motor_var_ustep_support": self.pumps[i]._motor_var_ustep_support,
                 "motor_max_ustep_exp": self.pumps[i]._motor_max_ustep_exp,
@@ -980,7 +979,7 @@ class HiPeristalticInterface():
             self.pumps[i]._motor_min_ustep_exp = config["pumps"]["pump"+str(i)]["motor_min_ustep_exp"]
             self.pumps[i].direction_default = config["pumps"]["pump"+str(i)]["direction_default"]
             self.pumps[i]._max_rpm = config["pumps"]["pump"+str(i)]["max_rpm"]
-            self.pumps[i]._motor_dir_inverse = config["pumps"]["pump"+str(i)]["direction_inverse"]
+            self.pumps[i]._motor_dir_inverse = config["pumps"]["pump"+str(i)]["motor_dir_inverse"]
         return True
     
     def _apply_pump_config_post(self, config: dict):
