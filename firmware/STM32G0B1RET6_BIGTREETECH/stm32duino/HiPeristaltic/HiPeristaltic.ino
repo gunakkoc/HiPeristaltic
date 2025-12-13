@@ -25,8 +25,8 @@
 #define TMC2209_driver
 #endif
 
-HardwareSerial Serial5(USART5);
-HardwareSerial Serial3(USART3);
+HardwareSerial Serial5(USART5); // USART to RPi
+HardwareSerial Serial3(USART3); // USART to TMC2209
 
 const uint32_t SUB_US_DIV = 1;
 const uint32_t SERIAL_INTERBYTE_TIMEOUT = SERIAL_INTERBYTE_TIMEOUT_US * SUB_US_DIV;
@@ -1264,12 +1264,12 @@ void setup() {
 
 void loop() {
 
-  while(1){ // communicate over UART until USB is connected
+  while(1){ // communicate over USART until USB is connected
 
     tick_now = micros();
 
     if(Serial){
-      Serial3.end(); //disable UART to RPi
+      Serial5.end(); //disable USART to RPi
       snd_byte_cnt = MSG_LEN + 1; //reset the send state, in case mid of sending message.
       rcv_byte_cnt = 0; // reset rcv status, in case mid of receiving.
       break; //move onto the loop with USB communication.
