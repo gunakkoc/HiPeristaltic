@@ -16,7 +16,8 @@
 
 #include <HardwareSerial.h>
 
-#define BUFFER_LEN 24                                 //suitable for Ethernet shield
+#define BUFFER_LEN 24
+#define USB_INTERMSG_DELAY_US 1300 //minimum 1000us for USB polling + 300us for safety
 #define SERIAL_INTERBYTE_TIMEOUT_US 500000L
 #define MOTOR_MIN_PULSE_WIDTH_US 3L //1us for A4988, 2us for DRV8825, ~100ns for TMC2208 and TMC2209
 
@@ -29,7 +30,8 @@ HardwareSerial Serial3(USART3);
 
 const uint32_t SUB_US_DIV = 1;
 const uint32_t SERIAL_INTERBYTE_TIMEOUT = SERIAL_INTERBYTE_TIMEOUT_US * SUB_US_DIV;
-const uint32_t MOTOR_MIN_PULSE_WIDTH = MOTOR_MIN_PULSE_WIDTH_US * SUB_US_DIV; //Arduino 16MHz clock is so slow that we don't need to check this
+const uint32_t MOTOR_MIN_PULSE_WIDTH = MOTOR_MIN_PULSE_WIDTH_US * SUB_US_DIV; //If Arduino AVR, then 16MHz clock is so slow that we don't need to check this. Similarly TMC2209 is very fast, hence no need.
+const uint32_t USB_INTERMSG_DELAY = USB_INTERMSG_DELAY_US * SUB_US_DIV;
 const uint8_t CMD_COUNT = 68;
 
 const uint8_t MSG_LEN = 6;
@@ -38,6 +40,7 @@ uint8_t snd_buffer[BUFFER_LEN];
 uint8_t rcv_byte_cnt = 0;
 uint8_t snd_byte_cnt = MSG_LEN;
 uint32_t rcv_last_tick = 0;
+uint32_t snd_last_tick = 0;
 uint8_t checksum = 0;
 
 const uint32_t min2us = 60000000L;
@@ -441,9 +444,6 @@ bool check_checksum() {
 
 void send_buffer(){
   calc_checksum();
-  // Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-  // Udp.write(snd_buffer,MSG_LEN);
-  // Udp.endPacket();
   // Serial5.write(snd_buffer,MSG_LEN);
   snd_byte_cnt = 0; //send by process_commands
 }
@@ -1023,29 +1023,18 @@ void (*cmd_fnc_lst[])() = {
   &get_sub_us_divider,
 };
 
-bool process_commands() {
-  // if (Udp.parsePacket()) {
-  //   Udp.read(rcv_buffer, BUFFER_LEN);
-  // } else {
-  //   return;
-  // }
+bool process_commands_UART() {
   if (snd_byte_cnt < MSG_LEN){ //data needs sending
     Serial5.write(snd_buffer[snd_byte_cnt]);
     snd_byte_cnt++;
     return true;
-    //if (bit_is_set(UCSR0A, UDRE0)) { //only if sending a byte is possible, only works on AVR
-      // UDR0 = snd_buffer[snd_byte_cnt]; //directly send a single byte, bypassing the TX buffer, only works on AVR
-      // snd_byte_cnt++;
-      // return true;
-    // }
-    // return false; //if a byte can't be send, wait for the next cycle
   } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
     rcv_byte_cnt = 0;
     if (check_checksum()){
-    if (rcv_buffer[0] > CMD_COUNT) {
-    err_cmd();
-    return true;
-    }
+      if (rcv_buffer[0] > CMD_COUNT) {
+        err_cmd();
+        return true;
+      }
       cmd_fnc_lst[rcv_buffer[0]](); //find the corresponding func by first byte as uint8
     } else {
       err_checksum(); //request data again
@@ -1063,6 +1052,43 @@ bool process_commands() {
     }
   }
   return false; //nothing happened
+}
+
+bool process_commands_USB() {
+  if (snd_byte_cnt < MSG_LEN){ //data needs sending
+	  Serial.write(snd_buffer, MSG_LEN);
+    snd_last_tick = tick_now;
+    snd_byte_cnt = MSG_LEN;
+	  return true;
+  } else if (snd_byte_cnt == MSG_LEN){ //all data have been sent, now needs flushing
+	  if ((tick_now - snd_last_tick) <= USB_INTERMSG_DELAY) { //wait 1ms+ to flush
+		  return false; //wait if this time hasn't elapsed yet
+	  }
+    snd_byte_cnt++; //everything flushed, we can move on
+    return true;
+  } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
+    rcv_byte_cnt = 0;
+    if (check_checksum()){
+      if (rcv_buffer[0] > CMD_COUNT) {
+    	  err_cmd();
+    	  return true;
+      }
+      cmd_fnc_lst[rcv_buffer[0]](); //find the corresponding func by first byte as uint8
+    } else {
+      err_checksum();
+    }
+    return true; //continue reading (if any) on next cycle
+  } else if (Serial.available()){ //if nothing else to do and need reading
+    rcv_last_tick = tick_now;
+	  rcv_buffer[rcv_byte_cnt] = Serial.read(); //read a single byte
+    rcv_byte_cnt++;
+    return true;
+  } else if ((rcv_byte_cnt) && ((tick_now - rcv_last_tick) > SERIAL_INTERBYTE_TIMEOUT)){ //inter-byte timeout
+    rcv_byte_cnt = 0;
+    return true;
+  } else {
+    return false; //nothing happened
+  }
 }
 
 uint32_t rpm1motorus(int ppr, int microstepping, float rpm) {
@@ -1161,9 +1187,10 @@ void m3step() {
 }
 
 void setup() {
-  //Ethernet.begin(mac,ip);
-  //Udp.begin(localPort);
-  Serial5.setRx(PD2);
+
+  Serial.begin(115200); // optional USB CDC
+
+  Serial5.setRx(PD2); // UART to RPi (default communication)
   Serial5.setTx(PD3);
   Serial5.begin(115200, SERIAL_8N1);
   
@@ -1226,24 +1253,50 @@ void setup() {
   digitalWrite(m3_enabled_pin, LOW); //finally enable back the motor
   //-----------------------
 
-  TMC2209_Init();
-
   delay(10);
+  TMC2209_Init();
+  delay(10);
+
   tick_now = micros();
   //signal_start();
   //delay(1000);
 }
 
 void loop() {
-  tick_now = micros();
 
-  //Step the motor if it is running and if delta time has passed
-  m0step();
-  m1step();
-  m2step();
-  m3step();
+  while(1){ // communicate over UART until USB is connected
 
-  //Communicate
-  process_commands();
+    tick_now = micros();
+
+    if(Serial){
+      Serial3.end(); //disable UART to RPi
+      snd_byte_cnt = MSG_LEN + 1; //reset the send state, in case mid of sending message.
+      rcv_byte_cnt = 0; // reset rcv status, in case mid of receiving.
+      break; //move onto the loop with USB communication.
+    }
+
+    //Communicate
+    process_commands_UART();
+
+    //Step the motor if it is running and if delta time has passed
+    m0step();
+    m1step();
+    m2step();
+    m3step();
+  }
+
+  while(1) { // communicate over USB until restart
+
+    tick_now = micros();
+
+    //Communicate
+    process_commands_USB();
+
+    //Step the motor if it is running and if delta time has passed
+    m0step();
+    m1step();
+    m2step();
+    m3step();
+  }
 
 }
