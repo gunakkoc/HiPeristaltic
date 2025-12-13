@@ -1166,11 +1166,10 @@ void setup() {
   Serial5.setRx(PD2);
   Serial5.setTx(PD3);
   Serial5.begin(115200, SERIAL_8N1);
-  Serial3.setTx(PC10);
-  Serial3.begin(115200);
-
   
-  // USART3->CR1 &= ~USART_CR1_RE;  // Disble receiver - STM32 specific
+  Serial3.setTx(PC10); // TMC2209 USART, only TX works
+  Serial3.begin(115200);
+  USART3->CR1 &= ~USART_CR1_RE;  // Disable receiver - STM32 specific
   
   // UCSR0B &= ~_BV(UDRIE0); //disable "USART, Data Register Empty" interrupt, only works on AVR
 
