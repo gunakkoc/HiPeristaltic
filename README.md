@@ -3,6 +3,10 @@
 
 # HiPeristaltic
 
+[![Graphical Abstract](https://github.com/user-attachments/assets/69af7f53-6322-4fac-9e4f-4ee0f87fd43f)](https://doi.org/10.1039/D5DD00157A)
+
+<sub>Credit: Michael Buchhorn - [https://doi.org/10.1039/D5DD00157A](https://doi.org/10.1039/D5DD00157A)</sub>
+
 HiPeristaltic is a fully open-source (hardware and software) peristaltic pump with multiple independent channels, developed in Germany at **H**elmholtz **I**nstitute Erlangen-Nürnberg for Renewable Energy/Forschungszentrum Jülich.
 
 This repo is a part of our publication [**An open-source peristaltic pump with multiple independent channels for laboratory automation**](https://doi.org/10.1039/D5DD00157A) from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
