@@ -4,8 +4,7 @@
 # HiPeristaltic
 
 [![Graphical Abstract](https://github.com/user-attachments/assets/69af7f53-6322-4fac-9e4f-4ee0f87fd43f)](https://doi.org/10.1039/D5DD00157A)
-
-<sub><sup>Credit: Michael Buchhorn - [https://doi.org/10.1039/D5DD00157A](https://doi.org/10.1039/D5DD00157A)</sup></sub>
+<sub><sup>Image credit: Michael Buchhorn - [https://doi.org/10.1039/D5DD00157A](https://doi.org/10.1039/D5DD00157A)</sup></sub>
 
 HiPeristaltic is a fully open-source (hardware and software) peristaltic pump with multiple independent channels, developed in Germany at **H**elmholtz **I**nstitute Erlangen-Nürnberg for Renewable Energy/Forschungszentrum Jülich.
 
