@@ -1,9 +1,11 @@
+The firmware in this folder is experimental and not fully tested.
+
 If the STM platform is using an stm32duino compatible bootloader, a common practice for 3D printer boards, follow the steps below:
 
 1) Install [Arduino IDE 2](https://www.arduino.cc/en/software/)
 2) Add stm32duino compatibility by following the [official guide](https://github.com/stm32duino/Arduino_Core_STM32/wiki/Getting-Started)
 3) Modify `boards.txt`
-- Usually located in (or somewhere similar with the latest version number) and example for Windows:
+- Usually located in (or somewhere similar with the latest version number) for Windows:
 
 `C:\Users\YOUR_USERNAME\AppData\Local\Arduino15\packages\STMicroelectronics\hardware\stm32\2.11.0`
 - In the boards.txt, locate and change `GenG0.build.flash_offset=0x2000`
