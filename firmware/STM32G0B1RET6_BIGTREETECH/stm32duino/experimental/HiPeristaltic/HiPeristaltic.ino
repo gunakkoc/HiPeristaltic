@@ -372,8 +372,9 @@ void TMC2209_WriteRegister(uint8_t addr, uint8_t reg, uint32_t value) { //addr 0
 }
 
 void TMC2209_Init() {
+    uint8_t driver_address_mapping[4] = {0, 2, 1, 3};
     for (int i=0; i<4; i++){
-        TMC2209_motors[i].addr_motor = i; //addr 0 for motor1, addr 1 for motor2 and so on.
+        TMC2209_motors[i].addr_motor = driver_address_mapping[i];
 
         TMC2209_motors[i].GSTAT.fields.reset = 0;
         TMC2209_motors[i].GSTAT.fields.drv_err = 0;
@@ -1027,6 +1028,9 @@ bool process_commands_UART() {
   if (snd_byte_cnt < MSG_LEN){ //data needs sending
     Serial5.write(snd_buffer[snd_byte_cnt]);
     snd_byte_cnt++;
+    if (snd_byte_cnt == MSG_LEN) {
+      snd_byte_cnt++; // for compatibility with the USB com's flushing logic
+    }
     return true;
   } else if (rcv_byte_cnt == MSG_LEN){ //entire package is received, process
     rcv_byte_cnt = 0;
@@ -1114,7 +1118,7 @@ void m0step() {
       m0_tick_last = tick_now;
       return;
     }
-  } else if (snd_byte_cnt == MSG_LEN) { 
+  } else if (snd_byte_cnt > MSG_LEN) { 
     m0_running = false;
     signal_m0_end();
   }
@@ -1136,7 +1140,7 @@ void m1step() {
       m1_tick_last = tick_now;
       return;
     }
-  } else if (snd_byte_cnt == MSG_LEN) { 
+  } else if (snd_byte_cnt > MSG_LEN) { 
     m1_running = false;
     signal_m1_end();
   }
@@ -1158,7 +1162,7 @@ void m2step() {
       m2_tick_last = tick_now;
       return;
     }
-  } else if (snd_byte_cnt == MSG_LEN) { 
+  } else if (snd_byte_cnt > MSG_LEN) { 
     m2_running = false;
     signal_m2_end();
   }
@@ -1180,7 +1184,7 @@ void m3step() {
       m3_tick_last = tick_now;
       return;
     }
-  } else if (snd_byte_cnt == MSG_LEN) { 
+  } else if (snd_byte_cnt > MSG_LEN) { 
     m3_running = false;
     signal_m3_end();
   }
