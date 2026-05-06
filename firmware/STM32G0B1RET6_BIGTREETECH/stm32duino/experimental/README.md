@@ -1,4 +1,4 @@
-The firmware in this folder is experimental and not fully tested.
+The firmware in this folder is experimental and not fully tested. Unlike the stable version, this one supports the features of TMC2209 driver and also supports USB connection. The default connection is still UART but as soon as a USB connection is established, the USB serial is activated and UART gets disabled.
 
 If the STM platform is using an stm32duino compatible bootloader, a common practice for 3D printer boards, follow the steps below:
 
