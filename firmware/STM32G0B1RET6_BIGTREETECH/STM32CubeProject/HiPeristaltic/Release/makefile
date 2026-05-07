@@ -64,8 +64,8 @@ all: main-build
 main-build: HiPeristaltic.elf secondary-outputs
 
 # Tool invocations
-HiPeristaltic.elf HiPeristaltic.map: $(OBJS) $(USER_OBJS) C:\Users\gakkoc\STM32CubeIDE\workspace_1.16.1\HiPeristaltic\STM32G0B1RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "HiPeristaltic.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\Users\gakkoc\STM32CubeIDE\workspace_1.16.1\HiPeristaltic\STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HiPeristaltic.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+HiPeristaltic.elf HiPeristaltic.map: $(OBJS) $(USER_OBJS) C:\gits\HiPeristaltic\firmware\STM32G0B1RET6_BIGTREETECH\STM32CubeProject\HiPeristaltic\STM32G0B1RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "HiPeristaltic.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\gits\HiPeristaltic\firmware\STM32G0B1RET6_BIGTREETECH\STM32CubeProject\HiPeristaltic\STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HiPeristaltic.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

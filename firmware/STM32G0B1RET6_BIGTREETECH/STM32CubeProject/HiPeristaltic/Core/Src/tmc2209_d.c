@@ -104,8 +104,9 @@ HAL_StatusTypeDef TMC2209_Init(USART_HandleTypeDef huart) {
     TMC2209_huart = huart;
     //TMC2209_write_ind = 0;
     //TMC2209_read_ind = 0;
+    uint8_t driver_address_mapping[4] = {0, 2, 1, 3}; // per SKR board docs
     for (int i=0; i<4; i++){
-    	TMC2209_motors[i].addr_motor = i; //addr 0 for motor1, addr 1 for motor2 and so on.
+    	TMC2209_motors[i].addr_motor = driver_address_mapping[i];
 
     	//TMC2209_ReadRegister(TMC2209_motors[i].addr_motor, reg_GSTAT, &TMC2209_motors[i].GSTAT.val);
 
