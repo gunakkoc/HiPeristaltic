@@ -10,11 +10,11 @@ HiPeristaltic is a fully open-source (hardware and software) peristaltic pump wi
 
 This repo is a part of our publication [**An open-source peristaltic pump with multiple independent channels for laboratory automation**](https://doi.org/10.1039/D5DD00157A) from team [High-Throughput Electrocatalysis (HTE)](https://www.hi-ern.de/en/research/electrocatalysis/high-throughput-electrochemistry).
 
-HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 280USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software.
+HiPeristaltic is built using 3D printed and off-the-shelf parts, with software based on Python for the user interface and pure C for the microcontroller firmware. The total cost for the entire system is approximately 280USD. It is accurate up to 0.2% volume and comes optimized, thread-safe and error-resistant software. 
 
 HiPeristaltic includes a [**SiLa2**](https://sila-standard.com/standards/) software module for easy integration to digital laboratories and for Self Driving Laboratories ([SDLs](https://doi.org/10.1021/acs.chemrev.4c00055)). SiLa2 also allows controlling the pump with a **GUI over web browser** for non-coder users. Additionally, **Python API** is available under `/interface/` for non-SiLa integration.
 
-The software stack is designed to be compatible with a wide range of MCUs (STM32, Arduino, Pico), stepper motor drivers (A4988, DRV8825, TMC2209, ...) and connectivity options (UART, USB, Ethernet/Wifi).
+The software stack is designed to be compatible with a wide range of MCUs (STM32, Arduino, Pico), stepper motor drivers (A4988, DRV8825, TMC2209, ...) and connectivity options (**UART, USB, Ethernet/Wifi**).
 
 - Users who just want to get started can refer to [Getting Started Quickly](#Getting-Started-Quickly). This is the best option to replicate HiPeristaltic as published and with the recommended hardware.
 - For experienced users, a step by step guide is given in [Advanced Installation](#Advanced-Installation) to enable customizations.
@@ -374,5 +374,5 @@ while test.pumps[2].get_running():
 
 #change some config and save
 test.pumps[i].uL_per_rev = 60 #change calibration factor
-pump.save_config()
+test.save_config()
 ```
