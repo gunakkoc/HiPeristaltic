@@ -209,7 +209,7 @@ C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-a
 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_clzsi2.o)
                               C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(adddf3.o) (__clzsi2)
 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                              C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o (__aeabi_uldivmod)
+                              C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o (__aeabi_uldivmod)
 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_udivmoddi4.o)
                               C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_clzdi2.o)
@@ -234,8 +234,8 @@ Discarded input sections
  .ARM.exidx     0x00000000       0x10 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
  .ARM.attributes
                 0x00000000       0x1b C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .data          0x00000000        0x0 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
- .bss           0x00000000        0x0 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+ .data          0x00000000        0x0 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+ .bss           0x00000000        0x0 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
  .text          0x00000000       0x14 C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
  .data          0x00000000        0x0 C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
  .bss           0x00000000        0x0 C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
@@ -1333,8 +1333,8 @@ Linker script and memory map
 
 START GROUP
 LOAD C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o
-LOAD C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
-LOAD C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+LOAD C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+LOAD C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 LOAD C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\requiredLibraries.cpp.o
 LOAD C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal.c.o
 LOAD C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_adc.c.o
@@ -1559,7 +1559,7 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
 .text           0x080020bc     0xbf14
                 0x080020bc                        . = ALIGN (0x4)
  *(.text)
- .text          0x080020bc     0x9d28 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+ .text          0x080020bc     0x9d28 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                 0x080057e8                USBSerial::availableForWrite()
                 0x08005808                USBSerial::write(unsigned char)
                 0x08005820                USBSerial::available()
@@ -1600,7 +1600,7 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
                 0x0800b888                _getpid
                 0x0800b88c                USB_UCPD1_2_IRQHandler
                 0x0800bb84                _write
- .text          0x0800bde4      0xdb0 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+ .text          0x0800bde4      0xdb0 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
                 0x0800bde4                USBD_CtlError.isra.0
                 0x0800be58                HAL_PCD_EP_SetStall.isra.0
                 0x0800bef0                USBD_ClrClassConfig.isra.0
@@ -1627,11 +1627,11 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
                 0x0800cd40       0x28 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
  .text.frame_dummy
                 0x0800cd68       0x20 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
- .text.exit     0x0800cd88       0x2c C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
- .text.startup  0x0800cdb4      0xbe0 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+ .text.exit     0x0800cd88       0x2c C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+ .text.startup  0x0800cdb4      0xbe0 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                 0x0800cf24                main
                 0x0800d8d0                HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t) [clone .constprop.0] [clone .isra.0]
- .text.startup  0x0800d994      0x184 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+ .text.startup  0x0800d994      0x184 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
  .text.Reset_Handler
                 0x0800db18       0x50 C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                 0x0800db18                Reset_Handler
@@ -1722,11 +1722,11 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
 .rodata         0x0800dfd0      0xd00
                 0x0800dfd0                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0800dfd0      0xc44 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
- .rodata        0x0800ec14       0x2c C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+ .rodata        0x0800dfd0      0xc44 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+ .rodata        0x0800ec14       0x2c C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
  *(.rodata*)
  .rodata.str1.4
-                0x0800ec40       0x8f C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                0x0800ec40       0x8f C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                 0x0800ecd0                        . = ALIGN (0x4)
  *fill*         0x0800eccf        0x1 
 
@@ -1756,10 +1756,10 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
                 0x0800ecd8                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00101
-                0x0800ecd8        0x4 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                0x0800ecd8        0x4 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
  *(.init_array*)
  .init_array    0x0800ecdc        0x4 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
- .init_array    0x0800ece0        0x4 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+ .init_array    0x0800ece0        0x4 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
                 0x0800ece4                        PROVIDE (__init_array_end = .)
                 0x0800ece4                        . = ALIGN (0x4)
 
@@ -1769,7 +1769,7 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
  .fini_array    0x0800ece4        0x4 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
- .fini_array    0x0800ece8        0x4 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+ .fini_array    0x0800ece8        0x4 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                 0x0800ecec                        PROVIDE (__fini_array_end = .)
                 0x0800ecec                        . = ALIGN (0x4)
                 0x0800ecec                        _sidata = LOADADDR (.data)
@@ -1781,7 +1781,7 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
- .data          0x20000000      0x29c C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+ .data          0x20000000      0x29c C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
  *(.data*)
  .data._impure_ptr
                 0x2000029c        0x4 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
@@ -1802,7 +1802,7 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
                 0x200002f0                        _sbss = .
                 0x200002f0                        __bss_start__ = _sbss
  *(.bss)
- .bss           0x200002f0     0x1124 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+ .bss           0x200002f0     0x1124 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                 0x200003ec                SerialUSB
                 0x20000400                Serial5
                 0x20001090                _ZL13gpio_irq_conf.lto_priv.0
@@ -1869,9 +1869,9 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
  .ARM.attributes
                 0x0000001e       0x2c C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
  .ARM.attributes
-                0x0000004a       0x2a C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                0x0000004a       0x2a C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
  .ARM.attributes
-                0x00000074       0x2a C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                0x00000074       0x2a C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
  .ARM.attributes
                 0x0000009e       0x22 C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
  .ARM.attributes
@@ -1921,8 +1921,8 @@ LOAD C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xp
 .comment        0x00000000       0x39
  .comment       0x00000000       0x39 C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
                                  0x3a (size before relaxing)
- .comment       0x00000039       0x3a C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
- .comment       0x00000039       0x3a C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+ .comment       0x00000039       0x3a C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+ .comment       0x00000039       0x3a C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
  .comment       0x00000039       0x3a C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
  .comment       0x00000039       0x3a C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
  .comment       0x00000039       0x3a C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
@@ -2082,13 +2082,13 @@ DMA1_Ch4_7_DMA2_Ch1_5_DMAMUX1_OVR_IRQHandler      C:\Users\deniz\AppData\Local\a
 DMA1_Channel1_IRQHandler                          C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
 DMA1_Channel2_3_IRQHandler                        C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
 Default_Handler                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
-EXTI0_1_IRQHandler                                C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+EXTI0_1_IRQHandler                                C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\interrupt.cpp.o (symbol from plugin)
-EXTI2_3_IRQHandler                                C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+EXTI2_3_IRQHandler                                C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\interrupt.cpp.o (symbol from plugin)
-EXTI4_15_IRQHandler                               C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+EXTI4_15_IRQHandler                               C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\interrupt.cpp.o (symbol from plugin)
 FLASH_FlushCaches                                 C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_flash_ex.c.o (symbol from plugin)
@@ -2471,8 +2471,8 @@ HAL_PCD_EP_Receive                                C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
 HAL_PCD_EP_SetStall                               C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
-HAL_PCD_EP_SetStall.isra.0                        C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+HAL_PCD_EP_SetStall.isra.0                        C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 HAL_PCD_EP_Transmit                               C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
 HAL_PCD_GetState                                  C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
@@ -2963,8 +2963,8 @@ HardwareSerial::HardwareSerial(unsigned long, unsigned long, unsigned long, unsi
 HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t) HardwareSerial.cpp.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t) HardwareSerial.cpp.o (symbol from plugin)
-HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t) [clone .constprop.0] [clone .isra.0] C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+HardwareSerial::HardwareSerial(void*, HalfDuplexMode_t) [clone .constprop.0] [clone .isra.0] C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 HardwareSerial::_rx_complete_irq(serial_s*)       HardwareSerial.cpp.o (symbol from plugin)
 HardwareSerial::_tx_complete_irq(serial_s*)       HardwareSerial.cpp.o (symbol from plugin)
 HardwareSerial::available()                       HardwareSerial.cpp.o (symbol from plugin)
@@ -3253,15 +3253,15 @@ Reset_Handler                                     C:\Users\deniz\AppData\Local\a
 SPI1_IRQHandler                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
 SPI2_3_IRQHandler                                 C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
 SVC_Handler                                       C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
-Serial3                                           C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+Serial3                                           C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-Serial5                                           C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+Serial5                                           C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-SerialUSB                                         C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+SerialUSB                                         C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
                                                   WSerial.cpp.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 Stream::find(char const*)                         Stream.cpp.o (symbol from plugin)
@@ -3370,7 +3370,7 @@ String::toUpperCase()                             WString.cpp.o (symbol from plu
 String::trim()                                    WString.cpp.o (symbol from plugin)
 String::~String()                                 WString.cpp.o (symbol from plugin)
 String::~String()                                 WString.cpp.o (symbol from plugin)
-SysTick_Handler                                   C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+SysTick_Handler                                   C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\clock.c.o (symbol from plugin)
 SystemClock_Config                                C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\core\generic_clock.c.o (symbol from plugin)
@@ -3385,38 +3385,38 @@ SystemCoreClock                                   C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_adc.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal.c.o (symbol from plugin)
 SystemCoreClockUpdate                             C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\system_stm32yyxx.c.o (symbol from plugin)
-SystemInit                                        C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+SystemInit                                        C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\system_stm32yyxx.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
-TIM14_IRQHandler                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM14_IRQHandler                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM15_IRQHandler                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM15_IRQHandler                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM16_FDCAN_IT0_IRQHandler                        C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM16_FDCAN_IT0_IRQHandler                        C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM17_FDCAN_IT1_IRQHandler                        C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM17_FDCAN_IT1_IRQHandler                        C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM1_BRK_UP_TRG_COM_IRQHandler                    C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM1_BRK_UP_TRG_COM_IRQHandler                    C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM1_CC_IRQHandler                                C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM1_CC_IRQHandler                                C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM2_IRQHandler                                   C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM2_IRQHandler                                   C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM3_TIM4_IRQHandler                              C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM3_TIM4_IRQHandler                              C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
 TIM4_IRQHandler                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM6_DAC_LPTIM1_IRQHandler                        C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM6_DAC_LPTIM1_IRQHandler                        C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
-TIM7_LPTIM2_IRQHandler                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+TIM7_LPTIM2_IRQHandler                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HardwareTimer.cpp.o (symbol from plugin)
 TIMEx_DMACommutationCplt                          C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_tim_ex.c.o (symbol from plugin)
@@ -3463,13 +3463,13 @@ UART_Start_Receive_IT                             C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_uart_ex.c.o (symbol from plugin)
 UART_WaitOnFlagUntilTimeout                       C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_uart.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_uart_ex.c.o (symbol from plugin)
-USART1_IRQHandler                                 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USART1_IRQHandler                                 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\uart.c.o (symbol from plugin)
-USART2_LPUART2_IRQHandler                         C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USART2_LPUART2_IRQHandler                         C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\uart.c.o (symbol from plugin)
-USART3_4_5_6_LPUART1_IRQHandler                   C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USART3_4_5_6_LPUART1_IRQHandler                   C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\stm32\uart.c.o (symbol from plugin)
 USBD_CDC                                          C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\cdc\usbd_cdc.c.o (symbol from plugin)
@@ -3498,8 +3498,8 @@ USBD_Class_ProductStrDescriptor                   C:\Users\deniz\AppData\Local\a
 USBD_Class_UserStrDescriptor                      C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_desc.c.o (symbol from plugin)
 USBD_ClrClassConfig                               C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ctlreq.c.o (symbol from plugin)
-USBD_ClrClassConfig.isra.0                        C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBD_ClrClassConfig.isra.0                        C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USBD_CoreFindEP                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ctlreq.c.o (symbol from plugin)
 USBD_CoreFindIF                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
@@ -3510,8 +3510,8 @@ USBD_CtlContinueSendData                          C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
 USBD_CtlError                                     C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ctlreq.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\cdc\usbd_cdc.c.o (symbol from plugin)
-USBD_CtlError.isra.0                              C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBD_CtlError.isra.0                              C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USBD_CtlPrepareRx                                 C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ioreq.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\cdc\usbd_cdc.c.o (symbol from plugin)
 USBD_CtlReceiveStatus                             C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ioreq.c.o (symbol from plugin)
@@ -3522,8 +3522,8 @@ USBD_CtlSendData                                  C:\Users\deniz\AppData\Local\a
 USBD_CtlSendStatus                                C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ioreq.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ctlreq.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
-USBD_CtlSendStatus.isra.0                         C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBD_CtlSendStatus.isra.0                         C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USBD_DeInit                                       C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\cdc\usbd_cdc_if.c.o (symbol from plugin)
 USBD_Desc                                         C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_desc.c.o (symbol from plugin)
@@ -3585,8 +3585,8 @@ USBD_LL_SetupStage                                C:\Users\deniz\AppData\Local\a
 USBD_LL_StallEP                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_ctlreq.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
-USBD_LL_StallEP.constprop.0.isra.0                C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
-USBD_LL_StallEP.constprop.1.isra.0                C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBD_LL_StallEP.constprop.0.isra.0                C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+USBD_LL_StallEP.constprop.1.isra.0                C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USBD_LL_Start                                     C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usb_device_core.c.o (symbol from plugin)
 USBD_LL_Stop                                      C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
@@ -3623,14 +3623,14 @@ USBD_SystemClockConfigFromResume                  C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
 USBD_reenumerate                                  C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_if.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
-USBSerial::available()                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::available()                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
                                                   WSerial.cpp.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
-USBSerial::availableForWrite()                    C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::availableForWrite()                    C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 USBSerial::baud()                                 C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
 USBSerial::begin()                                C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
 USBSerial::begin(unsigned long)                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
@@ -3639,40 +3639,40 @@ USBSerial::begin(unsigned long, unsigned char)    C:\Users\deniz\AppData\Local\a
 USBSerial::dtr()                                  C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
 USBSerial::dtr(bool)                              C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
 USBSerial::end()                                  C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-USBSerial::flush()                                C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::flush()                                C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 USBSerial::numbits()                              C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
 USBSerial::operator bool()                        C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 USBSerial::paritytype()                           C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-USBSerial::peek()                                 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::peek()                                 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-USBSerial::read()                                 C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+USBSerial::read()                                 C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
-USBSerial::readBytes(char*, unsigned int)         C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::readBytes(char*, unsigned int)         C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-USBSerial::readBytesUntil(char, char*, unsigned int) C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+USBSerial::readBytesUntil(char, char*, unsigned int) C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 USBSerial::rts()                                  C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
 USBSerial::stopbits()                             C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-USBSerial::write(unsigned char const*, unsigned int) C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::write(unsigned char const*, unsigned int) C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
-USBSerial::write(unsigned char)                   C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USBSerial::write(unsigned char)                   C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\USBSerial.cpp.o (symbol from plugin)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 USBWakeUp_IRQHandler_dummy                        C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
 USB_ActivateEndpoint                              C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
-USB_ActivateEndpoint.isra.0                       C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USB_ActivateEndpoint.isra.0                       C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USB_ActivateRemoteWakeup                          C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
 USB_CoreInit                                      C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
@@ -3680,8 +3680,8 @@ USB_DeActivateRemoteWakeup                        C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
 USB_DeactivateEndpoint                            C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
-USB_DeactivateEndpoint.isra.0                     C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USB_DeactivateEndpoint.isra.0                     C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USB_DevConnect                                    C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_if.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
@@ -3698,8 +3698,8 @@ USB_EPSetStall                                    C:\Users\deniz\AppData\Local\a
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
 USB_EPStartXfer                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
-USB_EPStartXfer.isra.0                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USB_EPStartXfer.isra.0                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 USB_EPStopXfer                                    C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
 USB_EnableGlobalInt                               C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
@@ -3727,13 +3727,13 @@ USB_SetDevAddress                                 C:\Users\deniz\AppData\Local\a
 USB_StopDevice                                    C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
 USB_StopHost                                      C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
-USB_UCPD1_2_IRQHandler                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USB_UCPD1_2_IRQHandler                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
 USB_WritePMA                                      C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\LL\stm32yyxx_ll_usb.c.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\HAL\stm32yyxx_hal_pcd.c.o (symbol from plugin)
-USB_WritePMA.isra.0                               C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+USB_WritePMA.isra.0                               C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 WWDG_IRQHandler                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
 _Balloc                                           C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-mprec.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-gdtoa-gethex.o)
@@ -3741,11 +3741,11 @@ _Balloc                                           C:/Users/deniz/AppData/Local/A
 _Bfree                                            C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-mprec.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-gdtoa-gethex.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-strtod.o)
-_Min_Stack_Size                                   C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_Min_Stack_Size                                   C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
 _PathLocale                                       C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-locale.o)
-_ZL13gpio_irq_conf.lto_priv.0                     C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
+_ZL13gpio_irq_conf.lto_priv.0                     C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
 __aeabi_cdcmpeq                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpdf2.o)
 __aeabi_cdcmple                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpdf2.o)
 __aeabi_cdrcmple                                  C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_arm_cmpdf2.o)
@@ -3817,14 +3817,14 @@ __aeabi_ui2d                                      C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_fixunsdfdi.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-strtod.o)
 __aeabi_uidiv                                     C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 __aeabi_uidivmod                                  C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(divdf3.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-vfprintf_i.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-strtol.o)
 __aeabi_uldivmod                                  C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 __any_on                                          C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-mprec.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-gdtoa-gethex.o)
 __ascii_mbtowc                                    C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-mbtowc_r.o)
@@ -4045,7 +4045,7 @@ __ulp                                             C:/Users/deniz/AppData/Local/A
 _atol_r                                           C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-atol.o)
 _calloc_r                                         C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-callocr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-mprec.o)
-_close                                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_close                                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
 _close_r                                          C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
@@ -4055,12 +4055,12 @@ _ctype_                                           C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-strtol.o)
 _ebss                                             C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
 _edata                                            C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
-_end                                              C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_end                                              C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
-_estack                                           C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_estack                                           C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
-_exit                                             C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_exit                                             C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-abort.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
@@ -4081,7 +4081,7 @@ _free_r                                           C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-svfprintf.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-vdprintf.o)
-_fstat                                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_fstat                                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fstatr.o)
 _fstat_r                                          C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fstatr.o)
@@ -4089,7 +4089,7 @@ _fstat_r                                          C:/Users/deniz/AppData/Local/A
 _fwalk_sglue                                      C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
-_getpid                                           C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_getpid                                           C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signalr.o)
 _getpid_r                                         C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signalr.o)
@@ -4119,17 +4119,17 @@ _init                                             C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
 _init_signal                                      C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signal.o)
 _init_signal_r                                    C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signal.o)
-_isatty                                           C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_isatty                                           C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-isattyr.o)
 _isatty_r                                         C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-isattyr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-makebuf.o)
-_kill                                             C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_kill                                             C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signalr.o)
 _kill_r                                           C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signalr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signal.o)
-_lseek                                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_lseek                                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
 _lseek_r                                          C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
@@ -4155,7 +4155,7 @@ _printf_i                                         C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-vfprintf.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-svfprintf.o)
 _raise_r                                          C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signal.o)
-_read                                             C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_read                                             C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
 _read_r                                           C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
@@ -4164,7 +4164,7 @@ _realloc_r                                        C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fvwrite.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-svfprintf.o)
 _reclaim_reent                                    C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
-_sbrk                                             C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_sbrk                                             C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\SrcWrapper\syscalls.c.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
 _sbrk_r                                           C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
@@ -4192,7 +4192,7 @@ _vfiprintf_r                                      C:/Users/deniz/AppData/Local/A
 _vfprintf_r                                       C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-vfprintf.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fprintf.o)
 _wctomb_r                                         C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-wctomb_r.o)
-_write                                            C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+_write                                            C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   Print.cpp.o (symbol from plugin)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
 _write_r                                          C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
@@ -4270,7 +4270,7 @@ ep_def                                            C:\Users\deniz\AppData\Local\a
 err_checksum()                                    C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 err_cmd()                                         C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 errno                                             C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-isattyr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fstatr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-signalr.o)
@@ -4287,7 +4287,7 @@ fiprintf                                          C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-assert.o)
 fprintf                                           C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fprintf.o)
 free                                              C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-malloc.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
 g_anOutputPinConfigured                           wiring_analog.c.o (symbol from plugin)
                                                   wiring_digital.c.o (symbol from plugin)
 g_hpcd                                            C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\libraries\USBDevice\usbd_conf.c.o (symbol from plugin)
@@ -4384,7 +4384,7 @@ hw_config_init                                    C:\Users\deniz\AppData\Local\a
                                                   board.c.o (symbol from plugin)
 init                                              board.c.o (symbol from plugin)
                                                   main.cpp.o (symbol from plugin)
-initVariant                                       C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+initVariant                                       C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   main.cpp.o (symbol from plugin)
 itoa                                              itoa.c.o (symbol from plugin)
                                                   WString.cpp.o (symbol from plugin)
@@ -4438,12 +4438,12 @@ m3_target_steps                                   C:\Users\deniz\AppData\Local\a
 m3_tick_last                                      C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 m3_usteps_exp                                     C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
 m3step()                                          C:\Users\deniz\AppData\Local\arduino\sketches\B40358DF41830452987961B152102188\sketch\HiPeristaltic.ino.cpp.o (symbol from plugin)
-main                                              C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+main                                              C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   main.cpp.o (symbol from plugin)
                                                   C:\Users\deniz\AppData\Local\arduino\cores\c2c2276010c358a6c1923aa25cb15310\core.a(startup_stm32yyxx.S.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
 malloc                                            C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-malloc.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-mprec.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-__atexit.o)
 memchr                                            C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-memchr-stub.o)
@@ -4452,7 +4452,7 @@ memchr                                            C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-vfprintf_i.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-svfprintf.o)
 memcpy                                            C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-memcpy-stub.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fvwrite.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-reallocr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-svfprintf.o)
@@ -4463,8 +4463,8 @@ memmove                                           C:/Users/deniz/AppData/Local/A
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-fvwrite.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-nano-svfprintf.o)
 memset                                            C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans1.ltrans.o
-                                                  C:\Users\deniz\AppData\Local\Temp\ccGOO43G.ltrans0.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans1.ltrans.o
+                                                  C:\Users\deniz\AppData\Local\Temp\ccM7UmX7.ltrans0.ltrans.o
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-callocr.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
                                                   C:/Users/deniz/AppData/Local/Arduino15/packages/STMicroelectronics/tools/xpack-arm-none-eabi-gcc/14.2.1-1.1/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o

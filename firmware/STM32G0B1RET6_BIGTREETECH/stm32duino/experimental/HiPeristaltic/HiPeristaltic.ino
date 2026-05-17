@@ -406,7 +406,7 @@ void TMC2209_Init() {
         TMC2209_motors[i].CHOPCONF.fields.hend  = 1; //default 0
         TMC2209_motors[i].CHOPCONF.fields.tbl   = 2; //default 0
         TMC2209_motors[i].CHOPCONF.fields.vsense = 1; //0: low current, 1: high current, default 1
-        TMC2209_motors[i].CHOPCONF.fields.mres = TMC2209_MSTEP2;
+        TMC2209_motors[i].CHOPCONF.fields.mres = TMC2209_MSTEP1;
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_CHOPCONF, TMC2209_motors[i].CHOPCONF.val);
 
         TMC2209_motors[i].IHOLD_IRUN.val = 0;

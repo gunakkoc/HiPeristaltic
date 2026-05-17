@@ -5707,7 +5707,7 @@ Disassembly of section .text:
  80030c2:	e7be      	b.n	8003042 <TMC2209_Init+0x56a>
  80030c4:	10000053 	.word	0x10000053
  80030c8:	e0fc7800 	.word	0xe0fc7800
- 80030cc:	170300c5 	.word	0x170300c5
+ 80030cc:	180300c5 	.word	0x180300c5
  80030d0:	fff0e0e0 	.word	0xfff0e0e0
  80030d4:	000c1008 	.word	0x000c1008
  80030d8:	4666      	mov	r6, ip
