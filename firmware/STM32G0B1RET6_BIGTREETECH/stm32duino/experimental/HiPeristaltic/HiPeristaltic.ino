@@ -382,11 +382,11 @@ void TMC2209_Init() {
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_GSTAT, TMC2209_motors[i].GSTAT.val);
 
         TMC2209_motors[i].GCONF.val = 0;
-        TMC2209_motors[i].GCONF.fields.I_scale_analog = 1;
-        TMC2209_motors[i].GCONF.fields.internal_Rsense = 1;
-        TMC2209_motors[i].GCONF.fields.en_SpreadCycle = 0; //0: stealthchop, 1: spreadcycle
+        TMC2209_motors[i].GCONF.fields.I_scale_analog = 0;
+        TMC2209_motors[i].GCONF.fields.internal_Rsense = 0;
+        TMC2209_motors[i].GCONF.fields.en_SpreadCycle = 1; //0: stealthchop, 1: spreadcycle (better torque)
         TMC2209_motors[i].GCONF.fields.mstep_reg_select = 1; //mres by uart
-        TMC2209_motors[i].GCONF.fields.shaft = 0; //0: stealthchop, 1: spreadcycle
+        TMC2209_motors[i].GCONF.fields.shaft = 0; //0: normal, 1: inverse direction
         TMC2209_motors[i].GCONF.fields.index_otpw = 1;
         TMC2209_motors[i].GCONF.fields.index_step = 0;
         TMC2209_motors[i].GCONF.fields.pdn_disable = 1;
@@ -396,18 +396,23 @@ void TMC2209_Init() {
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_GCONF, TMC2209_motors[i].GCONF.val);
 
         TMC2209_motors[i].PWMCONF.val = 0xC10D0024;
-        TMC2209_motors[i].PWMCONF.fields.freewheel = 2; //short to LS
+        TMC2209_motors[i].PWMCONF.fields.freewheel = 0; //2 for short to LS, 0 normal
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_PWMCONF, TMC2209_motors[i].PWMCONF.val);
 
         TMC2209_motors[i].CHOPCONF.val = 0x10000053;
         TMC2209_motors[i].CHOPCONF.fields.intpol = 1;
-        TMC2209_motors[i].CHOPCONF.fields.mres = TMC2209_MSTEP1;
+        TMC2209_motors[i].CHOPCONF.fields.toff = 5; //default 3
+        TMC2209_motors[i].CHOPCONF.fields.hstrt = 4; //or 5, default 5
+        TMC2209_motors[i].CHOPCONF.fields.hend  = 1; //default 0
+        TMC2209_motors[i].CHOPCONF.fields.tbl   = 2; //default 0
+        TMC2209_motors[i].CHOPCONF.fields.vsense = 1; //0: low current, 1: high current, default 1
+        TMC2209_motors[i].CHOPCONF.fields.mres = TMC2209_MSTEP2;
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_CHOPCONF, TMC2209_motors[i].CHOPCONF.val);
 
         TMC2209_motors[i].IHOLD_IRUN.val = 0;
-        TMC2209_motors[i].IHOLD_IRUN.fields.ihold = 0;
-        TMC2209_motors[i].IHOLD_IRUN.fields.iholddelay = 1;
-        TMC2209_motors[i].IHOLD_IRUN.fields.irun = 31;
+        TMC2209_motors[i].IHOLD_IRUN.fields.ihold = 8;
+        TMC2209_motors[i].IHOLD_IRUN.fields.iholddelay = 12;
+        TMC2209_motors[i].IHOLD_IRUN.fields.irun = 16;
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_IHOLD_IRUN, TMC2209_motors[i].IHOLD_IRUN.val);
 
         TMC2209_motors[i].TCOOLTHRS.fields.tcoolthrs = 0; //disable
@@ -416,7 +421,7 @@ void TMC2209_Init() {
         TMC2209_motors[i].TPWMTHRS.fields.tpwmthrs = 0; //disable
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_TPWMTHRS, TMC2209_motors[i].TPWMTHRS.val);
 
-        TMC2209_motors[i].TPOWERDOWN.fields.tpowerdown = 255; //power down after ~1sec = (5.6secs/255)*40
+        TMC2209_motors[i].TPOWERDOWN.fields.tpowerdown = 255; //255 = 5.6 secs
         TMC2209_WriteRegister(TMC2209_motors[i].addr_motor, reg_TPOWERDOWN, TMC2209_motors[i].TPOWERDOWN.val);
 
         TMC2209_motors[i].VACTUAL.fields.vactual = 0;
@@ -1271,6 +1276,12 @@ void loop() {
   while(1){ // communicate over USART until USB is connected
 
     tick_now = micros();
+	
+	//Step the motor if it is running and if delta time has passed
+    m0step();
+    m1step();
+    m2step();
+    m3step();
 
     if(Serial){
       Serial5.end(); //disable USART to RPi
@@ -1282,25 +1293,21 @@ void loop() {
     //Communicate
     process_commands_UART();
 
-    //Step the motor if it is running and if delta time has passed
-    m0step();
-    m1step();
-    m2step();
-    m3step();
   }
 
   while(1) { // communicate over USB until restart
 
     tick_now = micros();
-
-    //Communicate
-    process_commands_USB();
-
-    //Step the motor if it is running and if delta time has passed
+	
+	//Step the motor if it is running and if delta time has passed
     m0step();
     m1step();
     m2step();
     m3step();
+
+    //Communicate
+    process_commands_USB();
+	
   }
 
 }

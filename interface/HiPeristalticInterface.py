@@ -1048,4 +1048,4 @@ if __name__ == "__main__":
         print("Remaining time (s):" , test.pumps[2].get_remaining_time().total_seconds())
         print("Remaining volume (uL):" , test.pumps[2].get_remaining_volume_uL())
         sleep(0.5)
-    # pump.save_config()
+    # test.save_config()

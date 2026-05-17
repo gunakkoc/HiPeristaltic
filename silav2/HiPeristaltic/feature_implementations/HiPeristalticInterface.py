@@ -50,7 +50,7 @@ class Pump():
     _motor_enabled: bool = False
     _motor_finite_mode: bool = False
     _motor_step_interval: np.uint32 = 2000
-    _motor_usteps: int = 1
+    _motor_usteps: int = 2
     _motor_min_step_interval: np.uint32 = 24 #in ticks
     _motor_max_steps: np.uint32 = np.iinfo(np.uint32).max - 2
     _motor_var_ustep_support: bool = False #variable microstepping support
@@ -1048,4 +1048,4 @@ if __name__ == "__main__":
         print("Remaining time (s):" , test.pumps[2].get_remaining_time().total_seconds())
         print("Remaining volume (uL):" , test.pumps[2].get_remaining_volume_uL())
         sleep(0.5)
-    # pump.save_config()
+    # test.save_config()
